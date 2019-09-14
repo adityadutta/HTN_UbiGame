@@ -40,12 +40,18 @@ PlayerEntity::PlayerEntity()
 
 	//Camera control
 	AddComponent<PlayerCameraComponent>();
+
+	//TODO: Testing text comp
+	testText = static_cast<GameEngine::TextComponent*>(AddComponent<GameEngine::TextComponent>());
+	testText->SetFont("arial.ttf");
+	testText->SetText("Hello World", 32, sf::Color::Red);
 }
 
  
 PlayerEntity::~PlayerEntity()
 {
-
+	delete testText;
+	testText = nullptr;
 }
 
 
