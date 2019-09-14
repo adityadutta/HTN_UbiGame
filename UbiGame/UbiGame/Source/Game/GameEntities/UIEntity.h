@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GameEngine/EntitySystem/Entity.h"
+#include "GameEngine/EntitySystem/Components/TextComponent.h"
 
 namespace  Game
 {
@@ -9,5 +10,11 @@ namespace  Game
 	public:
 		UIEntity();
 		~UIEntity();
+
+		//virtual void OnAddToWorld() override;
+		//virtual void OnRemoveFromWorld() override;
+
+	protected:
+		GameEngine::TextComponent* testText;
 	};
 }

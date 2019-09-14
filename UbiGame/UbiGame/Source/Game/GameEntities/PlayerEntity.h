@@ -21,8 +21,6 @@ namespace Game
 		GameEngine::SpriteRenderComponent* m_renderComponent;		
 		PlayerMovementComponent*	 m_playerMovementComponent;
 		GameEngine::AnimationComponent* m_animComponent;
-
-		GameEngine::TextComponent* testText;
 	};
 }
 
