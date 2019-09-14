@@ -138,6 +138,11 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Plauged.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\SubEntities\Plaugedoctor.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\SubEntities\Shopkeeper.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\SubEntities\Blacksmith.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\NPCEntity.cpp" />
     <ClCompile Include="Source\Game\GameComponents\PlayerCameraComponent.cpp" />
     <ClCompile Include="Source\GameEngine\Util\CameraManager.cpp" />
     <ClCompile Include="Source\Game\GameComponents\PlayerSoundComponent.cpp" />
@@ -163,8 +168,15 @@
     <ClCompile Include="Source\GameEngine\EntitySystem\Components\SpriteRenderComponent.cpp" />
     <ClCompile Include="Source\GameEngine\EntitySystem\Components\TextComponent.cpp" />
     <ClCompile Include="Source\Game\GameEntities\UIEntity.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\SuspectEntity.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\SubEntities\Towncrier.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Plauged.h" />
+    <ClInclude Include="Source\Game\GameEntities\SubEntities\Plaugedoctor.h" />
+    <ClInclude Include="Source\Game\GameEntities\SubEntities\Shopkeeper.h" />
+    <ClInclude Include="Source\Game\GameEntities\SubEntities\Blacksmith.h" />
+    <ClInclude Include="Source\Game\GameEntities\NPCEntity.h" />
     <ClInclude Include="Source\Game\GameComponents\PlayerCameraComponent.h" />
     <ClInclude Include="Source\GameEngine\Util\CameraManager.h" />
     <ClInclude Include="Source\Game\GameComponents\PlayerSoundComponent.h" />
@@ -189,6 +201,8 @@
     <ClInclude Include="Source\GameEngine\EntitySystem\Components\SpriteRenderComponent.h" />
     <ClInclude Include="Source\GameEngine\EntitySystem\Components\TextComponent.h" />
     <ClInclude Include="Source\Game\GameEntities\UIEntity.h" />
+    <ClInclude Include="Source\Game\GameEntities\SuspectEntity.h" />
+    <ClInclude Include="Source\Game\GameEntities\SubEntities\Towncrier.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

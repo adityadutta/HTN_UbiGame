@@ -1,12 +1,11 @@
-﻿  UIEntity.cpp
-  UbiGame.vcxproj -> D:\Hackathons\HackTheNorth\HTN_UbiGame\UbiGame\x64\Debug\UbiGame.exe
-  UbiGame.vcxproj -> D:\Hackathons\HackTheNorth\HTN_UbiGame\UbiGame\x64\Debug\UbiGame.pdb (Partial PDB)
-  D:\Hackathons\HackTheNorth\HTN_UbiGame\UbiGame\UbiGame\Resources\fonts\arial.ttf
-  D:\Hackathons\HackTheNorth\HTN_UbiGame\UbiGame\UbiGame\Resources\img\bg.png
-  D:\Hackathons\HackTheNorth\HTN_UbiGame\UbiGame\UbiGame\Resources\img\Flappy.png
-  D:\Hackathons\HackTheNorth\HTN_UbiGame\UbiGame\UbiGame\Resources\img\particles.png
-  D:\Hackathons\HackTheNorth\HTN_UbiGame\UbiGame\UbiGame\Resources\img\player.png
-  D:\Hackathons\HackTheNorth\HTN_UbiGame\UbiGame\UbiGame\Resources\img\tileset.png
-  D:\Hackathons\HackTheNorth\HTN_UbiGame\UbiGame\UbiGame\Resources\snd\glassBreak.wav
-  D:\Hackathons\HackTheNorth\HTN_UbiGame\UbiGame\UbiGame\Resources\snd\thunder.wav
+﻿  UbiGame.vcxproj -> C:\Users\Andrew Jin\Desktop\HTN_UbiGame\UbiGame\x64\Debug\UbiGame.exe
+  UbiGame.vcxproj -> C:\Users\Andrew Jin\Desktop\HTN_UbiGame\UbiGame\x64\Debug\UbiGame.pdb (Partial PDB)
+  C:\Users\Andrew Jin\Desktop\HTN_UbiGame\UbiGame\UbiGame\Resources\fonts\arial.ttf
+  C:\Users\Andrew Jin\Desktop\HTN_UbiGame\UbiGame\UbiGame\Resources\img\bg.png
+  C:\Users\Andrew Jin\Desktop\HTN_UbiGame\UbiGame\UbiGame\Resources\img\Flappy.png
+  C:\Users\Andrew Jin\Desktop\HTN_UbiGame\UbiGame\UbiGame\Resources\img\particles.png
+  C:\Users\Andrew Jin\Desktop\HTN_UbiGame\UbiGame\UbiGame\Resources\img\player.png
+  C:\Users\Andrew Jin\Desktop\HTN_UbiGame\UbiGame\UbiGame\Resources\img\tileset.png
+  C:\Users\Andrew Jin\Desktop\HTN_UbiGame\UbiGame\UbiGame\Resources\snd\glassBreak.wav
+  C:\Users\Andrew Jin\Desktop\HTN_UbiGame\UbiGame\UbiGame\Resources\snd\thunder.wav
   8 File(s) copied
