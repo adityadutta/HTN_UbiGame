@@ -113,6 +113,7 @@ void PlayerMovementComponent::Update()
 		{
 			jumping = false;
 		}
+
 	}
 
 	if (pawnPhy)

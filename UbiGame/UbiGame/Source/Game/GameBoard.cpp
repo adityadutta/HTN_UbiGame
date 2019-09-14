@@ -7,6 +7,7 @@
 #include "Game\GameEntities\PlayerEntity.h"
 #include "Game\GameEntities\ObstacleEntity.h"
 #include "Game\GameEntities\GroundEntity.h"
+#include "GameEntities/SubEntities/Blacksmith.h"
 
 using namespace Game;
 
@@ -30,11 +31,12 @@ GameBoard::GameBoard()
 		//SpawnNewRandomObstacles();
 	}
 
-	testUI = new UIEntity();
+	blacksmith = new Blacksmith();
 
-	GameEngine::GameEngineMain::GetInstance()->AddEntity(testUI);
-	testUI->SetPos(sf::Vector2f(50.f, 50.f));
-	testUI->SetSize(sf::Vector2f(40.f, 40.f));
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(blacksmith);
+	blacksmith->SetPos(sf::Vector2f(100.0f, 200.0f));
+	blacksmith->SetSize(sf::Vector2f(150.0f, 150.f));
+
 }
 
 

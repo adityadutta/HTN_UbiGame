@@ -3,8 +3,8 @@
 
 #include <SFML/System/Vector2.hpp>
 #include <vector>
-#include "GameEntities/UIEntity.h"
 #include "GameEntities/GroundEntity.h"
+#include "GameEntities/NPCEntity.h"
 
 namespace Game
 {
@@ -49,8 +49,8 @@ namespace Game
 		float m_lastObstacleSpawnTimer;
 		bool  m_isGameOver;
 
-		//TODO: Test UI Entity
-		UIEntity* testUI;
+		NPCEntity* blacksmith;
+
 	};
 }
 
