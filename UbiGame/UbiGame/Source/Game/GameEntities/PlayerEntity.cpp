@@ -40,6 +40,11 @@ PlayerEntity::PlayerEntity()
 
 	//Camera control
 	AddComponent<PlayerCameraComponent>();
+
+	ui = new UIEntity();
+	ui->SetText("Hello Adventure! I am NPC.");
+	ui->SetTextSize(18);
+	ui->SetColor(sf::Color::Green);
 }
 
  
@@ -57,6 +62,8 @@ void PlayerEntity::OnAddToWorld()
 	{
 		m_animComponent->PlayAnim(GameEngine::EAnimationId::BirdIdle);
 	}
+
+	ui->AttachToEntity(this, -5.0f, -50.0f);
 }
 
 

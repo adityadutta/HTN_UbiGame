@@ -4,6 +4,7 @@
 #include "GameEngine\EntitySystem\Components\SpriteRenderComponent.h"
 #include "Game\GameComponents\PlayerMovementComponent.h"
 #include "GameEngine/EntitySystem/Components/TextComponent.h"
+#include "UIEntity.h"
 
 namespace Game
 {			
@@ -21,6 +22,9 @@ namespace Game
 		GameEngine::SpriteRenderComponent* m_renderComponent;		
 		PlayerMovementComponent*	 m_playerMovementComponent;
 		GameEngine::AnimationComponent* m_animComponent;
+
+		//TODO: Test UI
+		UIEntity* ui;
 	};
 }
 

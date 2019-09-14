@@ -3,6 +3,7 @@
 
 #include <SFML/System/Vector2.hpp>
 #include <vector>
+#include "GameEntities/UIEntity.h"
 
 namespace Game
 {
@@ -43,6 +44,7 @@ namespace Game
 		bool  m_isGameOver;
 
 		//TODO: Test UI Entity
+		UIEntity* testUI;
 	};
 }
 

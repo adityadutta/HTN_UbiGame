@@ -9,6 +9,7 @@
 #include "Game\GameComponents\PlayerSoundComponent.h"
 
 #include <SFML/Window/Keyboard.hpp>
+#include <iostream>
 
 using namespace Game;
 
@@ -50,6 +51,16 @@ void PlayerMovementComponent::Update()
 
 	sf::Vector2f wantedVel = sf::Vector2f(0.f, 0.f);
 	bool wantsToFly = false;
+
+	//Gamepad logic
+	if (sf::Joystick::isConnected(0))
+	{
+		// joystick number 0 is connected
+		float x = sf::Joystick::getAxisPosition(0, sf::Joystick::X);
+		float y = sf::Joystick::getAxisPosition(0, sf::Joystick::Y);
+		if(x == -100 || x == 100)
+			wantedVel.x += x * dt;
+	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{

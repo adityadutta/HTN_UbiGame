@@ -16,6 +16,9 @@ namespace  GameEngine
 
 		void SetFont(std::string fontName_);
 		void SetText(std::string text_, int size_, sf::Color color_);
+		void SetText(std::string text_);
+		void SetSize(int size_);
+		void SetColor(sf::Color color_);
 
 	private:
 		sf::Text text;

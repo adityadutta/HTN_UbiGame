@@ -11,10 +11,22 @@ namespace  Game
 		UIEntity();
 		~UIEntity();
 
-		//virtual void OnAddToWorld() override;
-		//virtual void OnRemoveFromWorld() override;
+		virtual void OnAddToWorld() override;
+		virtual void OnRemoveFromWorld() override;
 
-	protected:
-		GameEngine::TextComponent* testText;
+		virtual void Update() override;
+
+		void AttachToEntity(Entity* entityToAttachTo_, float offX_, float offY_);
+		void SetText(std::string text_);
+		void SetTextSize(int size_);
+		void SetColor(sf::Color color_);
+
+	private:
+		GameEngine::TextComponent* textComp;
+
+		float offX;
+		float offY;
+
+		Entity* parentEntity;
 	};
 }

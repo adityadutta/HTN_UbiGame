@@ -27,6 +27,12 @@ GameBoard::GameBoard()
 	{
 		//SpawnNewRandomObstacles();
 	}
+
+	testUI = new UIEntity();
+
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(testUI);
+	testUI->SetPos(sf::Vector2f(50.f, 50.f));
+	testUI->SetSize(sf::Vector2f(40.f, 40.f));
 }
 
 

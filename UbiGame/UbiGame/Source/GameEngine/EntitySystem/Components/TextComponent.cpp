@@ -48,12 +48,26 @@ void GameEngine::TextComponent::SetFont(std::string fontName_)
 
 void GameEngine::TextComponent::SetText(std::string text_, int size_, sf::Color color_)
 {
+	SetText(text_);
+	SetSize(size_);
+	SetColor(color_);
+	
+}
+
+void GameEngine::TextComponent::SetText(std::string text_)
+{
 	// set the string to display
 	text.setString(text_);
+}
 
+void GameEngine::TextComponent::SetSize(int size_)
+{
 	// set the character size
 	text.setCharacterSize(size_); // in pixels, not points!
+}
 
+void GameEngine::TextComponent::SetColor(sf::Color color_)
+{
 	// set the color
 	text.setFillColor(color_);
 }
