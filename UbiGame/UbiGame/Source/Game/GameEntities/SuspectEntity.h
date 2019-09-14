@@ -1,12 +1,17 @@
 #include "NPCEntity.h"
 
-class SuspectEntity : public NPCEntity
+
+namespace Game
 {
-public:
-	SuspectEntity();
-	~SuspectEntity();
 
-	virtual void OnThreaten() = 0;
-	virtual void OnArrest() = 0;
-};
+	class SuspectEntity : public NPCEntity
+	{
+	public:
+		SuspectEntity();
+		~SuspectEntity();
 
+		virtual void OnThreaten() = 0;
+		virtual void OnArrest() = 0;
+	};
+
+}

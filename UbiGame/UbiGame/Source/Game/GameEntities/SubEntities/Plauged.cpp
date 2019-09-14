@@ -2,6 +2,8 @@
 
 #include "GameEngine/Util/AnimationManager.h"
 
+using namespace Game;
+
 Plauged::Plauged()
 {
 }

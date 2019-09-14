@@ -1,21 +1,36 @@
-#include <memory>
+#pragma once
 
 #include "GameEngine/EntitySystem/Entity.h"
 #include "GameEngine/EntitySystem/Components/AnimationComponent.h"
 #include "GameEngine/EntitySystem/Components/SpriteRenderComponent.h"
+#include "GameEngine/EntitySystem/Components/CollidableComponent.h"
+#include "UIEntity.h"
 
-class NPCEntity : public GameEngine::Entity
+namespace Game
 {
-public:
-	NPCEntity();
-	~NPCEntity();
 
-	virtual void OnAddToWorld() override;                                                                                      
-	virtual void OnRemoveFromWorld() override;
-	virtual void OnInteract() = 0;
+	class NPCEntity : public GameEngine::Entity
+	{
+	public:
+		NPCEntity();
+		~NPCEntity();
 
-protected:
-	std::unique_ptr<GameEngine::SpriteRenderComponent> m_renderComponent;
-	std::unique_ptr<GameEngine::AnimationComponent> m_animComponent;
-};
+		virtual void OnAddToWorld() override;
+		virtual void OnRemoveFromWorld() override;
+		virtual void OnInteract();
+		virtual void DisplayDialogue();
+		virtual void HideDialogue();
+		virtual void SetDialogue(std::string dialogue_);
 
+	protected:
+		GameEngine::SpriteRenderComponent* m_renderComponent;
+		GameEngine::AnimationComponent* m_animComponent;
+
+		GameEngine::CollidableComponent* collider;
+
+		//UI
+		UIEntity* uiEntity;
+		bool uiActive;
+	};
+
+}

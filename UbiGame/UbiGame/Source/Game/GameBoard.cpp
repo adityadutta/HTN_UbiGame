@@ -14,11 +14,12 @@ GameBoard::GameBoard()
 	, m_isGameOver(false)
 	, m_player(nullptr)
 	, m_backGround(nullptr)
+	, blacksmith(nullptr)
 {
 	m_player = new PlayerEntity();
 	
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
-	m_player->SetPos(sf::Vector2f(50.f, 50.f));	
+	m_player->SetPos(sf::Vector2f(50.f, 20.0f));	
 	m_player->SetSize(sf::Vector2f(40.f, 40.f));
 	
 	CreateBackGround();
@@ -28,11 +29,12 @@ GameBoard::GameBoard()
 		//SpawnNewRandomObstacles();
 	}
 
-	testUI = new UIEntity();
+	blacksmith = new Blacksmith();
 
-	GameEngine::GameEngineMain::GetInstance()->AddEntity(testUI);
-	testUI->SetPos(sf::Vector2f(50.f, 50.f));
-	testUI->SetSize(sf::Vector2f(40.f, 40.f));
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(blacksmith);
+	blacksmith->SetPos(sf::Vector2f(150.f, 100.f));
+	blacksmith->SetSize(sf::Vector2f(150.f, 150.f));
+
 }
 
 

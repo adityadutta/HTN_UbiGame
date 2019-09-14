@@ -5,7 +5,8 @@
 #include "Game\GameComponents\PlayerMovementComponent.h"
 #include "GameEngine/EntitySystem/Components/TextComponent.h"
 #include "UIEntity.h"
-#include "../../../PawnPhysicsComponent.h"
+#include "Game/GameComponents/PawnPhysicsComponent.h"
+#include "NPCEntity.h"
 
 namespace Game
 {			
@@ -18,6 +19,8 @@ namespace Game
 
 		virtual void OnAddToWorld() override;
 		virtual void OnRemoveFromWorld() override;
+
+		NPCEntity* lastNPCRef;
 
 	protected:
 		GameEngine::SpriteRenderComponent* m_renderComponent;		

@@ -10,7 +10,7 @@
 
 using namespace Game;
 
-PlayerEntity::PlayerEntity()
+PlayerEntity::PlayerEntity(): lastNPCRef(nullptr)
 {
 	//Movement
 	m_playerMovementComponent = static_cast<PlayerMovementComponent*>(AddComponent<PlayerMovementComponent>());

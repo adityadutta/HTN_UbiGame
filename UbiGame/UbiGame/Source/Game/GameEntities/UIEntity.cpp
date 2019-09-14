@@ -1,3 +1,5 @@
+#pragma once
+
 #include "UIEntity.h"
 #include "GameEngine/GameEngineMain.h"
 
@@ -7,6 +9,7 @@ Game::UIEntity::UIEntity()
 	textComp = static_cast<GameEngine::TextComponent*>(AddComponent<GameEngine::TextComponent>());
 	textComp->SetFont("arial.ttf");
 	textComp->SetText("Hello World", 32, sf::Color::Red);
+	textComp->SetZLevel(4);
 }
 
 

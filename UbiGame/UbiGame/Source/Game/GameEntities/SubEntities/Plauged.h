@@ -1,13 +1,20 @@
+#pragma once
+
 #include "Game/GameEntities/NPCEntity.h"
 
-class Plauged : public NPCEntity
+namespace Game
 {
-public:
-	Plauged();
-	~Plauged();
 
-	void OnAddToWorld();
-	void OnRemoveFromWorld();
-	void OnInteract();
 
-};
+	class Plauged : public NPCEntity
+	{
+	public:
+		Plauged();
+		~Plauged();
+
+		void OnAddToWorld();
+		void OnRemoveFromWorld();
+		void OnInteract();
+
+	};
+}

@@ -1,6 +1,7 @@
 #include "PlayerCollisionComponent.h"
 #include "GameEngine/GameEngineMain.h"
-
+#include "Game/GameEntities/NPCEntity.h"
+#include "GameEngine/Util/CollisionManager.h"
 
 
 Game::PlayerCollisionComponent::PlayerCollisionComponent(): player(nullptr)
@@ -29,6 +30,13 @@ void Game::PlayerCollisionComponent::CheckCollisionTag(CollidableComponent* coll
 	}
 	if(collidedComponent->GetTag() == "NPC")
 	{
-		//TODO: NPC interact logic
+		//TODO: NPC dialogue logic
+		if(player->lastNPCRef)
+		{
+			GameEngine::CollisionManager::GetInstance()->RegisterCollidable(static_cast<CollidableComponent*>(collidedComponent));
+		}
+		player->lastNPCRef = static_cast<NPCEntity*>(collidedComponent->GetEntity());
+		player->lastNPCRef->DisplayDialogue();
+		GameEngine::CollisionManager::GetInstance()->UnRegisterCollidable(static_cast<CollidableComponent*>(collidedComponent));
 	}
 }

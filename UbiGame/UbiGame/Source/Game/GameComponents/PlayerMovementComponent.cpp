@@ -10,7 +10,7 @@
 
 #include <SFML/Window/Keyboard.hpp>
 #include <iostream>
-#include "../../../PawnPhysicsComponent.h"
+#include "PawnPhysicsComponent.h"
 
 using namespace Game;
 

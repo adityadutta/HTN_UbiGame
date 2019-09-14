@@ -24,7 +24,7 @@ void Game::PawnPhysicsComponent::Update()
 
 	float gravity = 100.0f;
 
-	velocity.y += gravity;
+	//velocity.y += gravity;
 
 	//sf::Vector2f deltaPos = velocity * dt + 0.5f * acceleration * dt * dt;
 

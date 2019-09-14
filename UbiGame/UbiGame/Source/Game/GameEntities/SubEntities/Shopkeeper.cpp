@@ -2,6 +2,9 @@
 
 #include "GameEngine/Util/AnimationManager.h"
 
+using namespace Game;
+
+
 Shopkeeper::Shopkeeper()
 {
 }
