@@ -15,6 +15,9 @@ PlayerEntity::PlayerEntity()
 	//Movement
 	m_playerMovementComponent = static_cast<PlayerMovementComponent*>(AddComponent<PlayerMovementComponent>());
 
+	//Movement
+	pawnPhysicsComponent = static_cast<PawnPhysicsComponent*>(AddComponent<PawnPhysicsComponent>());
+
 	//Render 
 	m_renderComponent = static_cast<GameEngine::SpriteRenderComponent*>(AddComponent<GameEngine::SpriteRenderComponent>());	
 	m_renderComponent->SetTexture(GameEngine::eTexture::Player);
@@ -42,7 +45,7 @@ PlayerEntity::PlayerEntity()
 	AddComponent<PlayerCameraComponent>();
 
 	ui = new UIEntity();
-	ui->SetText("Hello Adventure! I am NPC.");
+	ui->SetText("Hello Adventure! I am NPC.\nHello");
 	ui->SetTextSize(18);
 	ui->SetColor(sf::Color::Green);
 }

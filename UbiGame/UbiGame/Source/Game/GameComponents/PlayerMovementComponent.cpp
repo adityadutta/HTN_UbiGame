@@ -10,6 +10,7 @@
 
 #include <SFML/Window/Keyboard.hpp>
 #include <iostream>
+#include "../../../PawnPhysicsComponent.h"
 
 using namespace Game;
 
@@ -20,7 +21,7 @@ PlayerMovementComponent::PlayerMovementComponent()
 	, m_playerSoundComponent(nullptr)
 	, jumpSpeed(50000.0f)
 	, jumping(false)
-	, grounded(false)
+	, grounded(true)
 {
 
 }
@@ -54,11 +55,13 @@ void PlayerMovementComponent::Update()
 
 	float dt = GameEngine::GameEngineMain::GetTimeDelta();
 	static bool  debugSounds = false;
-	static float playerVel = 150.f; //Pixels/s
+	static float playerVel = 150.0f; //Pixels/s
 
 
 	sf::Vector2f wantedVel = sf::Vector2f(0.f, 0.f);
 	bool wantsToFly = false;
+
+	PawnPhysicsComponent* pawnPhy = GetEntity()->GetComponent<PawnPhysicsComponent>();
 
 	//Gamepad logic
 	if (sf::Joystick::isConnected(0))
@@ -67,47 +70,33 @@ void PlayerMovementComponent::Update()
 		float x = sf::Joystick::getAxisPosition(0, sf::Joystick::X);
 		float y = sf::Joystick::getAxisPosition(0, sf::Joystick::Y);
 		if (x == -100 || x == 100)
-			wantedVel.x += x * dt;
+			wantedVel.x += x;
 
 		if (sf::Joystick::isButtonPressed(0, 0))
 		{
 			if (!jumping)
 			{
 				jumping = true;
-				wantedVel.y -= jumpSpeed * dt;
+				wantedVel.y -= jumpSpeed;
 			}
 		}
 		else
 		{
 			jumping = false;
-			wantedVel.y += 20.0f * dt;
 		}
+
+		if(pawnPhy)
+			pawnPhy->SetVelocity(wantedVel);
 	}
 	else
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		{
-			wantedVel.x -= playerVel * dt;
+			wantedVel.x -= playerVel;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 		{
-			wantedVel.x += playerVel * dt;
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-		{
-			wantedVel.y -= playerVel * dt;
-			if (m_playerSoundComponent)
-			{
-				m_playerSoundComponent->RequestSound(true);
-			}
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-		{
-			wantedVel.y += playerVel * dt;
-			if (m_playerSoundComponent)
-			{
-				m_playerSoundComponent->RequestSound(false);
-			}
+			wantedVel.x += playerVel;
 		}
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
@@ -116,16 +105,20 @@ void PlayerMovementComponent::Update()
 			{
 				jumping = true;
 				grounded = false;
-				wantedVel.y -= jumpSpeed * dt;
+				wantedVel.y -= jumpSpeed;
+				//pawnPhy->AddForce(sf::Vector2f(0.0f,1000.0f));
 			}
 		}
 		else
 		{
 			jumping = false;
-			wantedVel.y += 20.0f * dt;
 		}
 	}
-	GetEntity()->SetPos(GetEntity()->GetPos() + wantedVel);
+
+	if (pawnPhy)
+	{
+		pawnPhy->SetVelocity(wantedVel);
+	}
 
 	if (wantedVel != sf::Vector2f(0.f, 0.f))
 	{

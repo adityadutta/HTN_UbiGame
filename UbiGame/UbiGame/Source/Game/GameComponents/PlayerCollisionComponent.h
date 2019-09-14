@@ -13,7 +13,7 @@ namespace Game
 
 		virtual void OnAddToWorld() override;
 
-		virtual void CheckCollisionTag(std::string tagToCompare_) override;
+		virtual void CheckCollisionTag(CollidableComponent* collidedComponent) override;
 
 	private:
 		Game::PlayerEntity* player;

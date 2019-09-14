@@ -5,6 +5,7 @@
 #include "Game\GameComponents\PlayerMovementComponent.h"
 #include "GameEngine/EntitySystem/Components/TextComponent.h"
 #include "UIEntity.h"
+#include "../../../PawnPhysicsComponent.h"
 
 namespace Game
 {			
@@ -22,6 +23,7 @@ namespace Game
 		GameEngine::SpriteRenderComponent* m_renderComponent;		
 		PlayerMovementComponent*	 m_playerMovementComponent;
 		GameEngine::AnimationComponent* m_animComponent;
+		PawnPhysicsComponent* pawnPhysicsComponent;
 
 		//UI
 		UIEntity* ui;

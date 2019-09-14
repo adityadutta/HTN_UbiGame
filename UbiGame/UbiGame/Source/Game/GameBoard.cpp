@@ -50,11 +50,11 @@ void GameBoard::Update()
 		m_lastObstacleSpawnTimer -= dt;
 		if (m_lastObstacleSpawnTimer <= 0.f)
 		{
-			SpawnNewRandomObstacles();
+			//SpawnNewRandomObstacles();
 //			SpawnNewRandomTiledObstacles();
 		}
 
-		UpdateObstacles(dt);
+		//	UpdateObstacles(dt);
 	//	UpdateBackGround();
 		UpdatePlayerDying();
 	}		

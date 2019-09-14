@@ -19,15 +19,15 @@ void Game::PlayerCollisionComponent::OnAddToWorld()
 	player = dynamic_cast<Game::PlayerEntity*>(GetEntity());
 }
 
-void Game::PlayerCollisionComponent::CheckCollisionTag(std::string tagToCompare_)
+void Game::PlayerCollisionComponent::CheckCollisionTag(CollidableComponent* collidedComponent)
 {
-	__super::CheckCollisionTag(tagToCompare_);
+	__super::CheckCollisionTag(collidedComponent);
 
-	if(tagToCompare_ == "Ground")
+	if(collidedComponent->GetTag() == "Ground")
 	{
 		player->GetComponent<Game::PlayerMovementComponent>()->SetGrounded(true);
 	}
-	if(tagToCompare_ == "NPC")
+	if(collidedComponent->GetTag() == "NPC")
 	{
 		//TODO: NPC interact logic
 	}

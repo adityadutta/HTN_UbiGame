@@ -15,7 +15,7 @@ namespace GameEngine
 
 		virtual void Update() override;
 
-		virtual void CheckCollisionTag(std::string tagToCompare_);
+		virtual void CheckCollisionTag(CollidableComponent* collidedComponent);
 	};
 }
 
