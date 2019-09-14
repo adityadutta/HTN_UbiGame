@@ -3,7 +3,8 @@
 
 #include <SFML/System/Vector2.hpp>
 #include <vector>
-#include "GameEntities/SubEntities/Blacksmith.h"
+#include "GameEntities/UIEntity.h"
+#include "GameEntities/GroundEntity.h"
 
 namespace Game
 {
@@ -36,14 +37,20 @@ namespace Game
 		void CreateBackGround();
 		void UpdateBackGround();
 
+		void CreateGround();
+		//void UpdateGround();
+
 		PlayerEntity* m_player;
+		//GroundEntity* m_ground_1;
+		//GroundEntity* m_ground_2;
 		GameEngine::Entity* m_backGround;
 
 		std::vector<GameEngine::Entity*> m_obstacles;
 		float m_lastObstacleSpawnTimer;
 		bool  m_isGameOver;
 
-		Blacksmith* blacksmith;
+		//TODO: Test UI Entity
+		UIEntity* testUI;
 	};
 }
 

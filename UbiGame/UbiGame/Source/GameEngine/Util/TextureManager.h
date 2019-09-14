@@ -15,7 +15,7 @@ namespace GameEngine
 			Tileset,
 			BG,
 			Particles,
-			Blacksmith,
+			Ground,
 			Count,
 		};
 	}	
@@ -28,7 +28,7 @@ namespace GameEngine
 		case eTexture::Tileset:   return "tileset.png";
 		case eTexture::BG:		  return "bg.png";
 		case eTexture::Particles: return "particles.png";
-		case eTexture::Blacksmith: return "blacksmith.png";
+		case eTexture::Ground: return "ground.png";
 		default:       return "UnknownTexType";
 		}
 	}
@@ -62,7 +62,7 @@ namespace TextureHelper
 		case  GameEngine::eTexture::Tileset: return sf::Vector2f(32.f, 32.f);
 		case  GameEngine::eTexture::BG:	     return sf::Vector2f(500.f, 500.f);
 		case  GameEngine::eTexture::Particles: return sf::Vector2f(31.f, 32.f);
-		case  GameEngine::eTexture::Blacksmith: return sf::Vector2f(150.f, 150.f);
+		case  GameEngine::eTexture::Ground: return sf::Vector2f(480.f, 100.f);
 		default:							 return sf::Vector2f(-1.f, -1.f);
 		}
 	}
