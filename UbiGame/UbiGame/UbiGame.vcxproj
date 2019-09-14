@@ -138,7 +138,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="PawnPhysicsComponent.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\GroundEntity.cpp" />
     <ClCompile Include="Source\Game\GameComponents\PlayerCollisionComponent.cpp" />
     <ClCompile Include="Source\Game\GameComponents\PlayerCameraComponent.cpp" />
     <ClCompile Include="Source\GameEngine\Util\CameraManager.cpp" />
@@ -167,7 +167,7 @@
     <ClCompile Include="Source\Game\GameEntities\UIEntity.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PawnPhysicsComponent.h" />
+    <ClInclude Include="Source\Game\GameEntities\GroundEntity.h" />
     <ClInclude Include="Source\Game\GameComponents\PlayerCollisionComponent.h" />
     <ClInclude Include="Source\Game\GameComponents\PlayerCameraComponent.h" />
     <ClInclude Include="Source\GameEngine\Util\CameraManager.h" />

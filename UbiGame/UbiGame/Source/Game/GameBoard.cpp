@@ -6,6 +6,7 @@
 #include "GameEngine\Util\CameraManager.h"
 #include "Game\GameEntities\PlayerEntity.h"
 #include "Game\GameEntities\ObstacleEntity.h"
+#include "Game\GameEntities\GroundEntity.h"
 
 using namespace Game;
 
@@ -18,10 +19,11 @@ GameBoard::GameBoard()
 	m_player = new PlayerEntity();
 	
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
-	m_player->SetPos(sf::Vector2f(50.f, 50.f));	
+	m_player->SetPos(sf::Vector2f(0.f, 0.f));	
 	m_player->SetSize(sf::Vector2f(40.f, 40.f));
 	
 	CreateBackGround();
+	CreateGround();
 	//Debug
 	for (int a = 0; a < 3; ++a)
 	{
@@ -54,8 +56,9 @@ void GameBoard::Update()
 //			SpawnNewRandomTiledObstacles();
 		}
 
-		//	UpdateObstacles(dt);
-	//	UpdateBackGround();
+		//UpdateObstacles(dt);
+		UpdateBackGround();
+		//UpdateGround();
 		UpdatePlayerDying();
 	}		
 }
@@ -96,6 +99,20 @@ void GameBoard::UpdatePlayerDying()
 	if (m_player->GetPos().x < xToPlayerDie)
 	{
 		m_isGameOver = true;
+	}
+}
+
+
+void GameBoard::CreateGround()
+{
+	float x_pos0 = -1000.f;
+	for (int i = 0; i < 30; i++)
+	{
+		float x_delta = 480 * float(i);
+		GroundEntity* groundEntity = new GroundEntity();
+		GameEngine::GameEngineMain::GetInstance()->AddEntity(groundEntity);
+		groundEntity->SetPos(sf::Vector2f(x_pos0 + x_delta, 310.f));
+		groundEntity->SetSize(sf::Vector2f(480.f, 100.f));
 	}
 }
 
@@ -168,8 +185,8 @@ void GameBoard::CreateBackGround()
 	GameEngine::SpriteRenderComponent* render = static_cast<GameEngine::SpriteRenderComponent*>(bgEntity->AddComponent<GameEngine::SpriteRenderComponent>());
 	render->SetTexture(GameEngine::eTexture::BG);
 	render->SetZLevel(0);
-	bgEntity->SetPos(sf::Vector2f(250.f, 250.f));
-	bgEntity->SetSize(sf::Vector2f(500.f, 500.f));
+	bgEntity->SetPos(sf::Vector2f(0.f, 0.f));
+	bgEntity->SetSize(sf::Vector2f(1280.f, 720.f));
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(bgEntity);
 
 	m_backGround = bgEntity;
@@ -184,5 +201,19 @@ void GameBoard::UpdateBackGround()
 	if (!GameEngine::CameraManager::IsFollowCameraEnabled())
 		return;
 
-	m_backGround->SetPos(m_player->GetPos());
+	m_backGround->SetPos(sf::Vector2f(m_player->GetPos().x, 0.f));
 }
+
+/*
+void GameBoard::UpdateGround()
+{
+	if (!m_ground_1 || !m_ground_2 || !m_player)
+		return;
+
+	if (!GameEngine::CameraManager::IsFollowCameraEnabled())
+		return;
+
+	if (m_ground_1)
+	m_ground->SetPos(sf::Vector2f(m_player->GetPos().x, m_ground->GetPos().y));
+}
+*/
