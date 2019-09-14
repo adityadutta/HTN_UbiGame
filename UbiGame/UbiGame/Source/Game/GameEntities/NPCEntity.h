@@ -10,8 +10,8 @@ public:
 	NPCEntity();
 	~NPCEntity();
 
-	virtual void OnAddToWorld() = 0;                                                                                      
-	virtual void OnRemoveFromWorld() = 0;
+	virtual void OnAddToWorld() override;                                                                                      
+	virtual void OnRemoveFromWorld() override;
 	virtual void OnInteract() = 0;
 
 protected:
