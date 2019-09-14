@@ -15,7 +15,9 @@ namespace Game
 		virtual void OnRemoveFromWorld() override;
 
 	protected:
-		GameEngine::SpriteRenderComponent* m_renderComponent;		
+		GameEngine::SpriteRenderComponent* m_renderComponent;
+
+		GameEngine::CollidableComponent* collider;
 	};
 }
 

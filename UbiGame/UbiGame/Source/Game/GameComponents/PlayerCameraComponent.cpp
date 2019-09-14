@@ -29,5 +29,5 @@ void PlayerCameraComponent::Update()
 	if (!GameEngine::CameraManager::IsFollowCameraEnabled())
 		return;
 
-	GameEngine::CameraManager::GetInstance()->GetCameraView().setCenter(GetEntity()->GetPos());
+	GameEngine::CameraManager::GetInstance()->GetCameraView().setCenter(GetEntity()->GetPos().x, 0.0f);
 }

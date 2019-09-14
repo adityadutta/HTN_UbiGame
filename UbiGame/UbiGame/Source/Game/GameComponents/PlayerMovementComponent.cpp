@@ -18,6 +18,9 @@ PlayerMovementComponent::PlayerMovementComponent()
 	, m_flyTimerMaxTime(2.f)
 	, m_animComponent(nullptr)
 	, m_playerSoundComponent(nullptr)
+	, jumpSpeed(50000.0f)
+	, jumping(false)
+	, grounded(false)
 {
 
 }
@@ -32,6 +35,11 @@ void PlayerMovementComponent::OnAddToWorld()
 {
 	m_animComponent = GetEntity()->GetComponent<GameEngine::AnimationComponent>();
 	m_playerSoundComponent = GetEntity()->GetComponent<PlayerSoundComponent>();
+}
+
+void PlayerMovementComponent::SetGrounded(bool grounded_)
+{
+	grounded = grounded_;
 }
 
 
@@ -58,35 +66,65 @@ void PlayerMovementComponent::Update()
 		// joystick number 0 is connected
 		float x = sf::Joystick::getAxisPosition(0, sf::Joystick::X);
 		float y = sf::Joystick::getAxisPosition(0, sf::Joystick::Y);
-		if(x == -100 || x == 100)
+		if (x == -100 || x == 100)
 			wantedVel.x += x * dt;
-	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-	{
-		wantedVel.x -= playerVel * dt;
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-	{
-		wantedVel.x += playerVel * dt;
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-	{
-		wantedVel.y -= playerVel * dt;
-		if (m_playerSoundComponent)
+		if (sf::Joystick::isButtonPressed(0, 0))
 		{
-			m_playerSoundComponent->RequestSound(true);
+			if (!jumping)
+			{
+				jumping = true;
+				wantedVel.y -= jumpSpeed * dt;
+			}
+		}
+		else
+		{
+			jumping = false;
+			wantedVel.y += 20.0f * dt;
 		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	else
 	{
-		wantedVel.y += playerVel * dt;
-		if (m_playerSoundComponent)
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		{
-			m_playerSoundComponent->RequestSound(false);
+			wantedVel.x -= playerVel * dt;
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		{
+			wantedVel.x += playerVel * dt;
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+		{
+			wantedVel.y -= playerVel * dt;
+			if (m_playerSoundComponent)
+			{
+				m_playerSoundComponent->RequestSound(true);
+			}
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+		{
+			wantedVel.y += playerVel * dt;
+			if (m_playerSoundComponent)
+			{
+				m_playerSoundComponent->RequestSound(false);
+			}
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		{
+			if (!jumping && grounded)
+			{
+				jumping = true;
+				grounded = false;
+				wantedVel.y -= jumpSpeed * dt;
+			}
+		}
+		else
+		{
+			jumping = false;
+			wantedVel.y += 20.0f * dt;
 		}
 	}
-
 	GetEntity()->SetPos(GetEntity()->GetPos() + wantedVel);
 
 	if (wantedVel != sf::Vector2f(0.f, 0.f))
@@ -107,16 +145,16 @@ void PlayerMovementComponent::Update()
 				m_animComponent->PlayAnim(GameEngine::EAnimationId::BirdFly);
 			}
 		}
-		else if(m_animComponent->GetCurrentAnimation() != GameEngine::EAnimationId::BirdIdle)
+		else if (m_animComponent->GetCurrentAnimation() != GameEngine::EAnimationId::BirdIdle)
 		{
 			m_animComponent->PlayAnim(GameEngine::EAnimationId::BirdIdle);
 		}
 	}
 
-	
+
 	static float rotationVel = 50.f; //Deg/s
 	static float maxRotation = 20.f; //Deg
-	
+
 	float currentRotation = GetEntity()->GetRot();
 	float wantedRot = 0.f;
 	bool  reseting = false;
@@ -126,7 +164,7 @@ void PlayerMovementComponent::Update()
 	else if (wantedVel.y < 0.f)
 		wantedRot = -rotationVel;
 	else
-	{				
+	{
 		if (currentRotation > 0.f)
 			wantedRot = -rotationVel;
 		else if (currentRotation < 0.f)

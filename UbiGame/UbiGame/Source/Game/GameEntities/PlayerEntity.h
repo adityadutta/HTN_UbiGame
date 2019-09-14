@@ -23,7 +23,7 @@ namespace Game
 		PlayerMovementComponent*	 m_playerMovementComponent;
 		GameEngine::AnimationComponent* m_animComponent;
 
-		//TODO: Test UI
+		//UI
 		UIEntity* ui;
 	};
 }

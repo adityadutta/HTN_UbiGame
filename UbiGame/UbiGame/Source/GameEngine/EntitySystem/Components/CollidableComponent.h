@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics/Rect.hpp>
 #include <SFML/System/Vector2.hpp>
+#include <string>
 
 namespace GameEngine
 {
@@ -22,11 +23,16 @@ namespace GameEngine
 
 		void SetBoundingBox(sf::Vector2f size);
 
+		void SetTag(std::string tag_);
+		std::string GetTag();
+
 	protected:
 		void SetupDefaultBoundingBox();
 		
 		bool	 m_useDefaultBox;
 		AABBRect m_AABBBox;
+
+		std::string tag;
 	};
 }
 

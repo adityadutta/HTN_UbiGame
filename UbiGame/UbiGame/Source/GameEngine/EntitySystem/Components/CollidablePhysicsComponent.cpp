@@ -64,6 +64,12 @@ void CollidablePhysicsComponent::Update()
 			}
 
 			GetEntity()->SetPos(pos);
+
+			CheckCollisionTag(colComponent->GetTag());
 		}
 	}
+}
+
+void CollidablePhysicsComponent::CheckCollisionTag(std::string tagToCompare_)
+{
 }

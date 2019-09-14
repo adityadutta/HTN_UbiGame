@@ -37,6 +37,7 @@ void CollidableComponent::OnRemoveFromWorld()
 }
 
 
+
 void CollidableComponent::SetupDefaultBoundingBox()
 {
 	//Static AABB for the time being		
@@ -53,6 +54,16 @@ void CollidableComponent::SetBoundingBox(sf::Vector2f size)
 	m_AABBBox.top = -m_AABBBox.height / 2.f;
 
 	m_useDefaultBox = false;
+}
+
+void CollidableComponent::SetTag(std::string tag_)
+{
+	tag = tag_;
+}
+
+std::string CollidableComponent::GetTag()
+{
+	return  tag;
 }
 
 const AABBRect CollidableComponent::GetWorldAABB() const

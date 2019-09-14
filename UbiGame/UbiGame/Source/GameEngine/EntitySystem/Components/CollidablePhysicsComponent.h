@@ -14,6 +14,8 @@ namespace GameEngine
 		virtual void OnRemoveFromWorld() override;
 
 		virtual void Update() override;
+
+		virtual void CheckCollisionTag(std::string tagToCompare_);
 	};
 }
 

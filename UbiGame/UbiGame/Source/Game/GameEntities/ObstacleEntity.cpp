@@ -14,7 +14,8 @@ ObstacleEntity::ObstacleEntity()
 	m_renderComponent->SetZLevel(2);
 	m_renderComponent->SetTileIndex(0, 0);
 
-	AddComponent<GameEngine::CollidableComponent>();
+	collider = static_cast<GameEngine::CollidableComponent*>(AddComponent<GameEngine::CollidableComponent>());
+	collider->SetTag("Ground");
 }
 
 
