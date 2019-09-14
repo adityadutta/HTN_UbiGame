@@ -30,5 +30,7 @@
 *.out
 *.app
 
+Release/
+
 .vs/
 SFML-2.5.0/
