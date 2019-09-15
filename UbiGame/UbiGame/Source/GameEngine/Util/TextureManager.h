@@ -13,6 +13,8 @@ namespace GameEngine
 			None = -1,
 			Player = 0,
 			PlayerIdle,
+			PlayerAttack,
+			PlayerDead,
 			Tileset,
 			BG,
 			Particles,
@@ -26,6 +28,13 @@ namespace GameEngine
 			Bell,
 			Towncrier,
 			PlagueDoctor,
+			BGObject1,
+			BGObject2,
+			BGObject3,
+			BGObject4,
+			BGObject5,
+			BGObject6,
+			BGObject7,
 			Count,
 		};
 	}
@@ -36,6 +45,8 @@ namespace GameEngine
 		{
 		case eTexture::Player:			return "knight_animation.png";
 		case eTexture::PlayerIdle:		return "knight_idle.png";
+		case eTexture::PlayerAttack:	return "knight_attack.png";
+		case eTexture::PlayerDead:		return "knight_death.png";
 		case eTexture::Tileset:			return "tileset.png";
 		case eTexture::BG:				return "starry_background.png";
 		case eTexture::Particles:		return "particles.png";
@@ -49,6 +60,13 @@ namespace GameEngine
 		case eTexture::Panacea:		    return "panacea.png";
 		case eTexture::GreenVial:		return "green_vial.png";
 		case eTexture::Bell:			return "bell.png";
+		case eTexture::BGObject1:	return "background1.png";
+		case eTexture::BGObject2:	return "background2.png";
+		case eTexture::BGObject3:	return "background3.png";
+		case eTexture::BGObject4:	return "background4.png";
+		case eTexture::BGObject5:	return "background5.png";
+		case eTexture::BGObject6:	return "background6.png";
+		case eTexture::BGObject7:	return "background7.png";
 		default:						return "UnknownTexType";
 		}
 	}
@@ -80,6 +98,8 @@ namespace TextureHelper
 		{
 		case  GameEngine::eTexture::Player:  return sf::Vector2f(252.f, 280.f);
 		case  GameEngine::eTexture::PlayerIdle:  return sf::Vector2f(252.f, 280.f);
+		case  GameEngine::eTexture::PlayerAttack:  return sf::Vector2f(272.f, 344.f);
+		case  GameEngine::eTexture::PlayerDead:  return sf::Vector2f(341.f, 288.f);
 		case  GameEngine::eTexture::Tileset: return sf::Vector2f(32.f, 32.f);
 		case  GameEngine::eTexture::BG:				return sf::Vector2f(1920.f, 1200.f);
 		case  GameEngine::eTexture::Particles: return sf::Vector2f(31.f, 32.f);

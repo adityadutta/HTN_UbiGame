@@ -15,6 +15,7 @@
 #include "GameEntities/SubEntities/Collectibles/Panacea.h"
 #include "GameEntities/SubEntities/Collectibles/GreenVial.h"
 #include "GameEntities/SubEntities/Collectibles/Bell.h"
+#include "Game\GameEntities\BackgroundEntity.h"
 
 using namespace Game;
 
@@ -251,6 +252,8 @@ void GameBoard::CreateBackGround()
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(bgEntity);
 
 	m_backGround = bgEntity;
+
+	CreateBackGroundObjects();
 }
 
 
@@ -265,3 +268,8 @@ void GameBoard::UpdateBackGround()
 	m_backGround->SetPos(sf::Vector2f(m_player->GetPos().x, 0.f));
 }
 
+void GameBoard::CreateBackGroundObjects()
+{
+	BackgroundEntity* bgEntity = new BackgroundEntity();
+	m_backgroundObjects = bgEntity->renderObjects();
+}

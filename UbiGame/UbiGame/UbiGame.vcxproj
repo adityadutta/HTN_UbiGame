@@ -138,6 +138,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Game\GameEntities\BackgroundEntity.cpp" />
     <ClCompile Include="Source\Game\GameEntities\SubEntities\Collectibles\Bell.cpp" />
     <ClCompile Include="Source\Game\GameEntities\SubEntities\Collectibles\GreenVial.cpp" />
     <ClCompile Include="Source\Game\GameEntities\SubEntities\Collectibles\Panacea.cpp" />
@@ -181,6 +182,7 @@
     <ClCompile Include="Source\Game\GameEntities\UIEntity.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Game\GameEntities\BackgroundEntity.h" />
     <ClInclude Include="Source\Game\GameEntities\SubEntities\Collectibles\Bell.h" />
     <ClInclude Include="Source\Game\GameEntities\SubEntities\Collectibles\GreenVial.h" />
     <ClInclude Include="Source\Game\GameEntities\SubEntities\Collectibles\Panacea.h" />

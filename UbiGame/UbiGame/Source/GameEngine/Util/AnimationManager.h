@@ -14,6 +14,8 @@ namespace GameEngine
 			PlayerRight,
 			PlayerLeft,
 			PlayerIdle,
+			PlayerAttack,
+			PlayerDead,
 			CowAnim,
 			None,
 		};

@@ -36,7 +36,7 @@ void GameEngine::TextComponent::Render(sf::RenderTarget* target)
 
 void GameEngine::TextComponent::SetFont(std::string fontName_)
 {
-	if (!font.loadFromFile("Resources/fonts/arial.ttf"))
+	if (!font.loadFromFile("Resources/fonts/ancient-modern-tales.ttf"))
 	{
 		//error
 		return;
