@@ -50,6 +50,7 @@ namespace Game
 		bool  m_isGameOver;
 
 		NPCEntity* blacksmith;
+		NPCEntity* blacksmith2;
 
 	};
 }

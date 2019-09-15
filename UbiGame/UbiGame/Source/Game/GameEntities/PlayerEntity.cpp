@@ -7,10 +7,11 @@
 #include "GameEngine/EntitySystem/Components/ParticleEmitterComponent.h"
 #include "GameEngine/EntitySystem/Components/SoundComponent.h"
 #include "GameEngine/Util/AnimationManager.h"
+#include "GameEngine/Util/CollisionManager.h"
 
 using namespace Game;
 
-PlayerEntity::PlayerEntity(): lastNPCRef(nullptr)
+PlayerEntity::PlayerEntity() : lastNPCRef(nullptr)
 {
 	//Movement
 	m_playerMovementComponent = static_cast<PlayerMovementComponent*>(AddComponent<PlayerMovementComponent>());
@@ -19,16 +20,16 @@ PlayerEntity::PlayerEntity(): lastNPCRef(nullptr)
 	pawnPhysicsComponent = static_cast<PawnPhysicsComponent*>(AddComponent<PawnPhysicsComponent>());
 
 	//Render 
-	m_renderComponent = static_cast<GameEngine::SpriteRenderComponent*>(AddComponent<GameEngine::SpriteRenderComponent>());	
+	m_renderComponent = static_cast<GameEngine::SpriteRenderComponent*>(AddComponent<GameEngine::SpriteRenderComponent>());
 	m_renderComponent->SetTexture(GameEngine::eTexture::Player);
 	m_renderComponent->SetZLevel(2);
 
 	//Animation
 	m_animComponent = static_cast<GameEngine::AnimationComponent*>(AddComponent<GameEngine::AnimationComponent>());
-		
+
 	//Collisions
 	AddComponent<PlayerCollisionComponent>();
-	
+
 	//Particles
 	GameEngine::ParticleEmitterComponent* emitterComponent = static_cast<GameEngine::ParticleEmitterComponent*>(AddComponent<GameEngine::ParticleEmitterComponent>());
 	GameEngine::SParticleDefinition particleDef = GameEngine::SParticleDefinition(GameEngine::eTexture::Particles, 1, sf::Vector2f(32.f, 32.f), GameEngine::EAnimationId::Smoke, 1.f);
@@ -38,7 +39,7 @@ PlayerEntity::PlayerEntity(): lastNPCRef(nullptr)
 	//Sound
 	GameEngine::SoundComponent* const soundComponent = static_cast<GameEngine::SoundComponent*>(AddComponent<GameEngine::SoundComponent>());
 	soundComponent->SetNumSimultaneousSounds(2); // Hard coded 5 simultaneous sounds for the player
-												 
+
 	AddComponent<PlayerSoundComponent>();
 
 	//Camera control
@@ -50,10 +51,10 @@ PlayerEntity::PlayerEntity(): lastNPCRef(nullptr)
 	ui->SetColor(sf::Color::Green);
 }
 
- 
+
 PlayerEntity::~PlayerEntity()
 {
-	
+
 }
 
 
@@ -73,4 +74,39 @@ void PlayerEntity::OnAddToWorld()
 void PlayerEntity::OnRemoveFromWorld()
 {
 	__super::OnRemoveFromWorld();
+}
+
+bool isInteractKeyPressed = false;
+void PlayerEntity::Update()
+{
+	__super::Update();
+
+	//Gamepad logic
+	if (sf::Joystick::isConnected(0))
+	{
+		if (sf::Joystick::isButtonPressed(0, 1))
+		{
+			if (lastNPCRef)
+			{
+				lastNPCRef->HideDialogue();
+				//GameEngine::CollisionManager::GetInstance()->UnRegisterCollidable(lastNPCRef->GetComponent<GameEngine::CollidableComponent>());
+			}
+		}
+	}
+	else
+	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+		{
+			if (lastNPCRef && !isInteractKeyPressed)
+			{
+				isInteractKeyPressed = true;
+				lastNPCRef->HideDialogue();
+				//GameEngine::CollisionManager::GetInstance()->UnRegisterCollidable(lastNPCRef->GetComponent<GameEngine::CollidableComponent>());
+			}
+			else
+			{
+				isInteractKeyPressed = false;
+			}
+		}
+	}
 }

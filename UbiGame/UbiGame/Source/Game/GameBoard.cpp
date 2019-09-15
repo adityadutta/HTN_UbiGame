@@ -20,7 +20,7 @@ GameBoard::GameBoard()
 	m_player = new PlayerEntity();
 	
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
-	m_player->SetPos(sf::Vector2f(0.f, 0.f));	
+	m_player->SetPos(sf::Vector2f(0.0f, -300.0f));	
 	m_player->SetSize(sf::Vector2f(40.f, 40.f));
 	
 	CreateBackGround();
@@ -36,6 +36,12 @@ GameBoard::GameBoard()
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(blacksmith);
 	blacksmith->SetPos(sf::Vector2f(100.0f, 200.0f));
 	blacksmith->SetSize(sf::Vector2f(150.0f, 150.f));
+	
+	blacksmith2 = new Blacksmith();
+
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(blacksmith2);
+	blacksmith2->SetPos(sf::Vector2f(400.0f, 200.0f));
+	blacksmith2->SetSize(sf::Vector2f(150.0f, 150.f));
 
 }
 
