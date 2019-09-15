@@ -20,6 +20,8 @@ namespace Game
 		virtual void OnAddToWorld() override;
 		virtual void OnRemoveFromWorld() override;
 
+		virtual void Update() override;
+
 		NPCEntity* lastNPCRef;
 
 	protected:

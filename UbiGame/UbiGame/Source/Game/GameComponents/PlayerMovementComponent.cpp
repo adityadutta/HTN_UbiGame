@@ -3,13 +3,11 @@
 #include "GameEngine\GameEngineMain.h"
 #include "GameEngine\EntitySystem\Components\SoundComponent.h"
 
-#include "GameEngine\Util\TextureManager.h"
 #include "GameEngine\Util\AnimationManager.h"
 
 #include "Game\GameComponents\PlayerSoundComponent.h"
 
 #include <SFML/Window/Keyboard.hpp>
-#include <iostream>
 #include "PawnPhysicsComponent.h"
 
 using namespace Game;
@@ -74,9 +72,10 @@ void PlayerMovementComponent::Update()
 
 		if (sf::Joystick::isButtonPressed(0, 0))
 		{
-			if (!jumping)
+			if (!jumping && grounded)
 			{
 				jumping = true;
+				grounded = false;
 				wantedVel.y -= jumpSpeed;
 			}
 		}

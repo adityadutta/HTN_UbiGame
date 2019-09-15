@@ -4,6 +4,7 @@
 #include "GameEngine/EntitySystem/Entity.h"
 
 #include <vector>
+#include <iostream>
 
 using namespace GameEngine;
 
@@ -63,9 +64,14 @@ void CollidablePhysicsComponent::Update()
 					pos.y += intersection.height;
 			}
 
-			GetEntity()->SetPos(pos);
+			if(colComponent->GetTag() == "Ground")
+			{
+				m_didCollide = true;
+				GetEntity()->SetPos(pos);
+			}
+			
 
-			CheckCollisionTag(colComponent);
+			//CheckCollisionTag(colComponent);
 		}
 	}
 }

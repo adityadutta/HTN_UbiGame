@@ -13,10 +13,19 @@ namespace Game
 
 		virtual void OnAddToWorld() override;
 
-		virtual void CheckCollisionTag(CollidableComponent* collidedComponent) override;
+		virtual void Update() override;
 
-	private:
+		virtual void CheckCollisionTag(CollidableComponent* collidedComponent) override;
+		void CheckForOverlapTrigger();
+
+		bool DidCollide() { return m_didCollide; }
+
+	protected:
 		Game::PlayerEntity* player;
+
+		bool m_didCollide;
+
+		bool isOverlapping;
 	};
 
 }

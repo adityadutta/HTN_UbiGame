@@ -17,9 +17,10 @@ void NPCEntity::OnAddToWorld()
 	__super::OnAddToWorld();
 
 	uiEntity = new UIEntity();
-	uiEntity->SetText("Hello Sir! I am NPC.\nHello");
+	uiEntity->SetText("");
 	uiEntity->SetTextSize(18);
 	uiEntity->SetColor(sf::Color::Green);
+	uiEntity->AttachToEntity(this, ((float)(-GetSize().x) / 2), (float)(-GetSize().y*0.65));
 }
 
 void NPCEntity::OnRemoveFromWorld()
@@ -32,13 +33,13 @@ void NPCEntity::DisplayDialogue()
 	if(!uiActive)
 	{
 		uiActive = true;
-		uiEntity->AttachToEntity(this, ((float)(-GetSize().x)/2), (float)(-GetSize().y*0.65));
+		uiEntity->SetText("Hello Adventure! I am NPC.\nHello");
 	}
 }
 
 void NPCEntity::HideDialogue()
 {
-	GameEngine::GameEngineMain::GetInstance()->RemoveEntity(uiEntity);
+	uiEntity->SetText("");
 	uiActive = false;
 }
 

@@ -1,5 +1,6 @@
 #include "PawnPhysicsComponent.h"
 #include "GameEngine/GameEngineMain.h"
+#include "PlayerCollisionComponent.h"
 
 
 Game::PawnPhysicsComponent::PawnPhysicsComponent():velocity(0.0f,0.0f), mass(1.0f), acceleration(0.0f, 0.0f)
@@ -18,7 +19,6 @@ void Game::PawnPhysicsComponent::OnAddToWorld()
 
 void Game::PawnPhysicsComponent::Update()
 {
-	__super::Update();
 	
 	float dt = GameEngine::GameEngineMain::GetTimeDelta();
 
@@ -31,6 +31,14 @@ void Game::PawnPhysicsComponent::Update()
 	sf::Vector2f deltaVelocity = velocity * dt;
 
 	GetEntity()->SetPos(GetEntity()->GetPos() + deltaVelocity);
+	
+	__super::Update();
+
+	if (GetEntity()->GetComponent<PlayerCollisionComponent>()->DidCollide())
+	{
+		velocity.y = 0;
+		GetEntity()->SetPos(GetEntity()->GetPos() - deltaVelocity);
+	}
 
 }
 

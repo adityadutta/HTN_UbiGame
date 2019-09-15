@@ -16,6 +16,10 @@ namespace GameEngine
 		virtual void Update() override;
 
 		virtual void CheckCollisionTag(CollidableComponent* collidedComponent);
+
+		bool DidCollide() { return m_didCollide; }
+	protected:
+		bool m_didCollide;
 	};
 }
 
