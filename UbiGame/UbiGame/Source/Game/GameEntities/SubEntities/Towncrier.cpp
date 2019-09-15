@@ -45,15 +45,24 @@ void Towncrier::OnRemoveFromWorld()
 
 void Towncrier::OnInteract()
 {
-
+	if (uiEntity)
+	{
+		uiEntity->SetText("");
+	}
 }
 
 void Towncrier::OnThreaten()
 {
-
+	if (uiEntity)
+	{
+		uiEntity->SetText("");
+	}
 }
 
 void Towncrier::OnArrest()
 {
-
+	if (uiEntity)
+	{
+		uiEntity->SetText("");
+	}
 }

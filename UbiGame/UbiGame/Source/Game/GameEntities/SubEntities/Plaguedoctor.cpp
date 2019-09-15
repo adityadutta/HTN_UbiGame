@@ -45,15 +45,24 @@ void Plaguedoctor::OnRemoveFromWorld()
 
 void Plaguedoctor::OnInteract()
 {
-
+	if (uiEntity)
+	{
+		uiEntity->SetText("");
+	}
 }
 
 void Plaguedoctor::OnThreaten()
 {
-
+	if (uiEntity)
+	{
+		uiEntity->SetText("");
+	}
 }
 
 void Plaguedoctor::OnArrest()
 {
-
+	if (uiEntity)
+	{
+		uiEntity->SetText("");
+	}
 }
