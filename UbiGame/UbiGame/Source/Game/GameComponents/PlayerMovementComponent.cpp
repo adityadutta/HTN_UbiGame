@@ -72,16 +72,19 @@ void PlayerMovementComponent::Update()
 
 		if (sf::Joystick::isButtonPressed(0, 0))
 		{
-			if (!jumping && grounded)
-			{
-				jumping = true;
-				grounded = false;
-				wantedVel.y -= jumpSpeed;
-			}
+			jumping = true;
 		}
 		else
 		{
-			jumping = false;
+			if (jumping)
+			{
+				jumping = false;
+				if (grounded)
+				{
+					grounded = false;
+					wantedVel.y -= jumpSpeed;
+				}
+			}
 		}
 
 		if(pawnPhy)
