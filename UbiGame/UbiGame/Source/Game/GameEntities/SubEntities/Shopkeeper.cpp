@@ -4,7 +4,6 @@
 
 using namespace Game;
 
-
 Shopkeeper::Shopkeeper()
 {
 	//Render 
@@ -15,6 +14,9 @@ Shopkeeper::Shopkeeper()
 	//Collision
 	collider = static_cast<GameEngine::CollidableComponent*>(AddComponent<GameEngine::CollidableComponent>());
 	collider->SetTag("NPC");
+
+	dialogues.at(0) = std::string("Hello! I am the Shopkeeper.");
+	SetDialogue(0);
 }
 
 Shopkeeper::~Shopkeeper()
@@ -27,7 +29,7 @@ void Shopkeeper::OnAddToWorld()
 
 	if (uiEntity)
 	{
-		uiEntity->SetText("Hello! I am the Shopkeeper.");
+		uiEntity->SetText("");
 		uiEntity->SetTextSize(18);
 		uiEntity->SetColor(sf::Color::Yellow);
 	}
@@ -45,15 +47,25 @@ void Shopkeeper::OnRemoveFromWorld()
 
 void Shopkeeper::OnInteract()
 {
-
+	if (uiEntity)
+	{
+		SetDialogue(1);
+	}
 }
 
 void Shopkeeper::OnThreaten()
 {
-
+	if (uiEntity)
+	{
+		//Success
+		SetDialogue(3);
+	}
 }
 
 void Shopkeeper::OnArrest()
 {
-
+	if (uiEntity)
+	{
+		SetDialogue(6);
+	}
 }

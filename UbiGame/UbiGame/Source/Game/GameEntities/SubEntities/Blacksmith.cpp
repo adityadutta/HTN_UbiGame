@@ -2,7 +2,6 @@
 
 #include "GameEngine/Util/AnimationManager.h"
 
-
 using namespace Game;
 
 Blacksmith::Blacksmith()
@@ -15,6 +14,9 @@ Blacksmith::Blacksmith()
 	//Collision
 	collider = static_cast<GameEngine::CollidableComponent*>(AddComponent<GameEngine::CollidableComponent>());
 	collider->SetTag("NPC");
+
+	dialogues.at(0) = std::string("Hello! I am the Blacksmith.");
+	SetDialogue(0);
 }
 
 Blacksmith::~Blacksmith()
@@ -27,7 +29,7 @@ void Blacksmith::OnAddToWorld()
 
 	if (uiEntity)
 	{
-		uiEntity->SetText("Hello! I am the Blacksmith.");
+		uiEntity->SetText("");
 		uiEntity->SetTextSize(18);
 		uiEntity->SetColor(sf::Color::Blue);
 	}
@@ -45,15 +47,25 @@ void Blacksmith::OnRemoveFromWorld()
 
 void Blacksmith::OnInteract()
 {
-
+	if (uiEntity)
+	{
+		SetDialogue(1);
+	}
 }
 
 void Blacksmith::OnThreaten()
 {
-
+	if (uiEntity)
+	{
+		//Success
+		SetDialogue(3);
+	}
 }
 
 void Blacksmith::OnArrest()
 {
-
+	if (uiEntity)
+	{
+		SetDialogue(6);
+	}
 }

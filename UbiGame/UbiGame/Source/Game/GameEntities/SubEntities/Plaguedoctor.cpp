@@ -4,7 +4,6 @@
 
 using namespace Game;
 
-
 Plaguedoctor::Plaguedoctor()
 {
 	//Render 
@@ -15,6 +14,10 @@ Plaguedoctor::Plaguedoctor()
 	//Collision
 	collider = static_cast<GameEngine::CollidableComponent*>(AddComponent<GameEngine::CollidableComponent>());
 	collider->SetTag("NPC");
+
+	dialogues.at(0) = std::string("Hello! I am the Plauge Doctor.");
+	dialogues.at(1) = std::string("The Blacksmith has been up to suspicious activity recently.\n You should talk to them");
+	SetDialogue(0);
 }
 
 Plaguedoctor::~Plaguedoctor()
@@ -27,7 +30,7 @@ void Plaguedoctor::OnAddToWorld()
 
 	if (uiEntity)
 	{
-		uiEntity->SetText("Hello! I am the Plague Doctor.");
+		uiEntity->SetText("");
 		uiEntity->SetTextSize(18);
 		uiEntity->SetColor(sf::Color::Red);
 	}
@@ -47,7 +50,7 @@ void Plaguedoctor::OnInteract()
 {
 	if (uiEntity)
 	{
-		uiEntity->SetText("");
+		SetDialogue(1);
 	}
 }
 
@@ -55,7 +58,7 @@ void Plaguedoctor::OnThreaten()
 {
 	if (uiEntity)
 	{
-		uiEntity->SetText("");
+		SetDialogue(4);
 	}
 }
 
@@ -63,6 +66,6 @@ void Plaguedoctor::OnArrest()
 {
 	if (uiEntity)
 	{
-		uiEntity->SetText("");
+		SetDialogue(7);
 	}
 }

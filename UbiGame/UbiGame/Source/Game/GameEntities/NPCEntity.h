@@ -8,7 +8,6 @@
 
 namespace Game
 {
-
 	class NPCEntity : public GameEngine::Entity
 	{
 	public:
@@ -20,7 +19,7 @@ namespace Game
 		virtual void OnInteract();
 		virtual void DisplayDialogue();
 		virtual void HideDialogue();
-		virtual void SetDialogue(std::string dialogue_);
+		virtual void SetDialogue(int dialogueIndex_);
 
 	protected:
 		GameEngine::SpriteRenderComponent* m_renderComponent;
@@ -31,6 +30,9 @@ namespace Game
 		//UI
 		UIEntity* uiEntity;
 		bool uiActive;
+
+		std::vector<std::string> dialogues;
+		int currentDialogueIndex;
 	};
 
 }

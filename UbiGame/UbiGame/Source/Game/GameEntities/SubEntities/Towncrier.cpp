@@ -4,7 +4,6 @@
 
 using namespace Game;
 
-
 Towncrier::Towncrier()
 {
 	//Render 
@@ -15,6 +14,9 @@ Towncrier::Towncrier()
 	//Collision
 	collider = static_cast<GameEngine::CollidableComponent*>(AddComponent<GameEngine::CollidableComponent>());
 	collider->SetTag("NPC");
+
+	dialogues.at(0) = std::string("Hello! I am the Town Crier.");
+	SetDialogue(0);
 }
 
 Towncrier::~Towncrier()
@@ -27,7 +29,7 @@ void Towncrier::OnAddToWorld()
 
 	if (uiEntity)
 	{
-		uiEntity->SetText("Hello! I am the Town Crier.");
+		uiEntity->SetText("");
 		uiEntity->SetTextSize(18);
 		uiEntity->SetColor(sf::Color::Black);
 	}
@@ -47,7 +49,7 @@ void Towncrier::OnInteract()
 {
 	if (uiEntity)
 	{
-		uiEntity->SetText("");
+		SetDialogue(1);
 	}
 }
 
@@ -55,7 +57,8 @@ void Towncrier::OnThreaten()
 {
 	if (uiEntity)
 	{
-		uiEntity->SetText("");
+		//Success
+		SetDialogue(3);
 	}
 }
 
@@ -63,6 +66,6 @@ void Towncrier::OnArrest()
 {
 	if (uiEntity)
 	{
-		uiEntity->SetText("");
+		SetDialogue(6);
 	}
 }

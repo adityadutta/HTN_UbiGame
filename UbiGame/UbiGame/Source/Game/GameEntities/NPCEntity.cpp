@@ -3,7 +3,7 @@
 
 using namespace Game;
 
-NPCEntity::NPCEntity(): uiActive(false), uiEntity(nullptr)
+NPCEntity::NPCEntity(): uiActive(false), uiEntity(nullptr), currentDialogueIndex(0)
 {
 }
 
@@ -33,7 +33,7 @@ void NPCEntity::DisplayDialogue()
 	if(!uiActive)
 	{
 		uiActive = true;
-		uiEntity->SetText("Hello Adventure! I am NPC.\nHello");
+		uiEntity->SetText(dialogues.at(currentDialogueIndex));
 	}
 }
 
@@ -43,9 +43,9 @@ void NPCEntity::HideDialogue()
 	uiActive = false;
 }
 
-void NPCEntity::SetDialogue(std::string dialogue_)
+void NPCEntity::SetDialogue(int dialogueIndex_)
 {
-	uiEntity->SetText(dialogue_);
+	currentDialogueIndex = dialogueIndex_;
 }
 
 void NPCEntity::OnInteract()
