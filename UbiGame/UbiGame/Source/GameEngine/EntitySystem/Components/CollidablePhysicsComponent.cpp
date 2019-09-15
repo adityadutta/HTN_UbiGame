@@ -5,6 +5,7 @@
 
 #include <vector>
 #include <iostream>
+#include "Game/GameComponents/PlayerMovementComponent.h"
 
 using namespace GameEngine;
 
@@ -67,6 +68,7 @@ void CollidablePhysicsComponent::Update()
 			if(colComponent->GetTag() == "Ground")
 			{
 				m_didCollide = true;
+				GetEntity()->GetComponent<Game::PlayerMovementComponent>()->SetGrounded(true);
 				GetEntity()->SetPos(pos);
 			}
 			

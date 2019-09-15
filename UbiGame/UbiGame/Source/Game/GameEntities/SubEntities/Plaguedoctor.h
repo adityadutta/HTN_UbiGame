@@ -2,19 +2,18 @@
 
 #include "Game/GameEntities/SuspectEntity.h"
 
-
 namespace Game
 {
-	class Plaugedoctor : public SuspectEntity
+	class Plaguedoctor : public SuspectEntity
 	{
 	public:
-		Plaugedoctor();
-		~Plaugedoctor();
+		Plaguedoctor();
+		~Plaguedoctor();
 
 		void OnAddToWorld();
 		void OnRemoveFromWorld();
 		void OnInteract();
-		void OnThreaten();
+		void OnThreaten(bool threatened) override;
 		void OnArrest();
 	};
 }

@@ -1,13 +1,20 @@
 #include "GameBoard.h"
 
 #include "GameEngine\GameEngineMain.h"
-#include "GameEngine\EntitySystem\Components\CollidableComponent.h"
 #include "GameEngine\EntitySystem\Components\SpriteRenderComponent.h"
 #include "GameEngine\Util\CameraManager.h"
 #include "Game\GameEntities\PlayerEntity.h"
 #include "Game\GameEntities\ObstacleEntity.h"
 #include "Game\GameEntities\GroundEntity.h"
+#include "Game\GameEntities\AnimatedObjectEntity.h"
 #include "GameEntities/SubEntities/Blacksmith.h"
+#include "GameEntities/SubEntities/Shopkeeper.h"
+#include "GameEntities/SubEntities/Towncrier.h"
+#include "GameEntities/SubEntities/Plaguedoctor.h"
+#include "GameEntities/SubEntities/Collectibles/BloodiedHammer.h"
+#include "GameEntities/SubEntities/Collectibles/Panacea.h"
+#include "GameEntities/SubEntities/Collectibles/GreenVial.h"
+#include "GameEntities/SubEntities/Collectibles/Bell.h"
 
 using namespace Game;
 
@@ -20,8 +27,8 @@ GameBoard::GameBoard()
 	m_player = new PlayerEntity();
 	
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
-	m_player->SetPos(sf::Vector2f(0.0f, -300.0f));	
-	m_player->SetSize(sf::Vector2f(40.f, 40.f));
+	m_player->SetPos(sf::Vector2f(0.f, 0.f));	
+	m_player->SetSize(sf::Vector2f(130.f, 150.f));
 	
 	CreateBackGround();
 	CreateGround();
@@ -31,17 +38,58 @@ GameBoard::GameBoard()
 		//SpawnNewRandomObstacles();
 	}
 
-	blacksmith = new Blacksmith();
+	SpawnRandomObjects();
+	//Cow
+	m_cow = new AnimatedObjectEntity(GameEngine::EAnimationId::CowAnim, GameEngine::eTexture::Cow);
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_cow);
+	m_cow->SetPos(sf::Vector2f(-400.0f, -150.0f));
+	m_cow->SetSize(sf::Vector2f(155.0f, 100.f));
 
-	GameEngine::GameEngineMain::GetInstance()->AddEntity(blacksmith);
-	blacksmith->SetPos(sf::Vector2f(100.0f, 200.0f));
-	blacksmith->SetSize(sf::Vector2f(150.0f, 150.f));
+	//BlackSmith
+	m_blacksmith = new Blacksmith();
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_blacksmith);
+	m_blacksmith->SetPos(sf::Vector2f(100.0f, 220.0f));
+	m_blacksmith->SetSize(sf::Vector2f(180.0f, 180.0f));
+
+	//ShopKeeper
+	m_shopkeeper = new Shopkeeper();
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_shopkeeper);
+	m_shopkeeper->SetPos(sf::Vector2f(600.0f, 200.0f));
+	m_shopkeeper->SetSize(sf::Vector2f(180.0f, 180.0f));
+
+	//Towncrier
+	m_towncrier = new Towncrier();
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_towncrier);
+	m_towncrier->SetPos(sf::Vector2f(1200.0f, 200.0f));
+	m_towncrier->SetSize(sf::Vector2f(180.0f, 180.0f));
+
+	//Plaguedoctor
+	m_plaguedoctor = new Plaguedoctor();
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_plaguedoctor);
+	m_plaguedoctor->SetPos(sf::Vector2f(1600.0f, 200.0f));
+	m_plaguedoctor->SetSize(sf::Vector2f(180.0f, 180.0f));
+
+	//Collectibles
+
+	bloodHammer = new BloodiedHammer();
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(bloodHammer);
+	bloodHammer->SetPos(sf::Vector2f(800.0f, 200.0f));
+	bloodHammer->SetSize(sf::Vector2f(50.0f, 50.0f));
 	
-	blacksmith2 = new Blacksmith();
-
-	GameEngine::GameEngineMain::GetInstance()->AddEntity(blacksmith2);
-	blacksmith2->SetPos(sf::Vector2f(400.0f, 200.0f));
-	blacksmith2->SetSize(sf::Vector2f(150.0f, 150.f));
+	panacea = new Panacea();
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(panacea);
+	panacea->SetPos(sf::Vector2f(1800.0f, 200.0f));
+	panacea->SetSize(sf::Vector2f(50.0f, 50.0f));
+	
+	greenVial = new GreenVial();
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(greenVial);
+	greenVial->SetPos(sf::Vector2f(2000.0f, 200.0f));
+	greenVial->SetSize(sf::Vector2f(50.0f, 50.0f));
+	
+	bell = new Bell();
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(bell);
+	bell->SetPos(sf::Vector2f(2200.0f, 200.0f));
+	bell->SetSize(sf::Vector2f(50.0f, 50.0f));
 
 }
 
@@ -187,6 +235,12 @@ void GameBoard::SpawnNewObstacle(const sf::Vector2f& pos, const sf::Vector2f& si
 }
 
 
+void GameBoard::SpawnRandomObjects()
+{
+	
+}
+
+
 void GameBoard::CreateBackGround()
 {
 	GameEngine::Entity* bgEntity = new GameEngine::Entity();
@@ -212,16 +266,3 @@ void GameBoard::UpdateBackGround()
 	m_backGround->SetPos(sf::Vector2f(m_player->GetPos().x, 0.f));
 }
 
-/*
-void GameBoard::UpdateGround()
-{
-	if (!m_ground_1 || !m_ground_2 || !m_player)
-		return;
-
-	if (!GameEngine::CameraManager::IsFollowCameraEnabled())
-		return;
-
-	if (m_ground_1)
-	m_ground->SetPos(sf::Vector2f(m_player->GetPos().x, m_ground->GetPos().y));
-}
-*/

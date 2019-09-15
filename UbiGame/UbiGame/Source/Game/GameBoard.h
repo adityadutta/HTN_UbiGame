@@ -4,7 +4,9 @@
 #include <SFML/System/Vector2.hpp>
 #include <vector>
 #include "GameEntities/GroundEntity.h"
+#include "GameEntities/AnimatedObjectEntity.h"
 #include "GameEntities/NPCEntity.h"
+#include "GameEntities/Collectible.h"
 
 namespace Game
 {
@@ -25,6 +27,8 @@ namespace Game
 		void SpawnNewRandomTiledObstacles();
 		void SpawnNewObstacle(const sf::Vector2f& pos, const sf::Vector2f& size);
 
+		void SpawnRandomObjects();
+
 		bool IsGameOver() const { return m_isGameOver; }		
 
 	protected:
@@ -38,20 +42,25 @@ namespace Game
 		void UpdateBackGround();
 
 		void CreateGround();
-		//void UpdateGround();
 
 		PlayerEntity* m_player;
-		//GroundEntity* m_ground_1;
-		//GroundEntity* m_ground_2;
 		GameEngine::Entity* m_backGround;
 
 		std::vector<GameEngine::Entity*> m_obstacles;
 		float m_lastObstacleSpawnTimer;
 		bool  m_isGameOver;
 
-		NPCEntity* blacksmith;
-		NPCEntity* blacksmith2;
+		AnimatedObjectEntity* m_cow;
 
+		NPCEntity* m_blacksmith;
+		NPCEntity* m_shopkeeper;
+		NPCEntity* m_towncrier;
+		NPCEntity* m_plaguedoctor;
+
+		Collectible* bloodHammer;
+		Collectible* panacea;
+		Collectible* greenVial;
+		Collectible* bell;
 	};
 }
 

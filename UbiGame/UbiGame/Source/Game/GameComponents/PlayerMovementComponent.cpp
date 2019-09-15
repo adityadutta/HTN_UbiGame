@@ -67,21 +67,43 @@ void PlayerMovementComponent::Update()
 		// joystick number 0 is connected
 		float x = sf::Joystick::getAxisPosition(0, sf::Joystick::X);
 		float y = sf::Joystick::getAxisPosition(0, sf::Joystick::Y);
-		if (x == -100 || x == 100)
-			wantedVel.x += x;
-
-		if (sf::Joystick::isButtonPressed(0, 0))
+		if (x == -100)
 		{
-			if (!jumping && grounded)
+			wantedVel.x += x;
+			if (wasNothingPressed)
 			{
-				jumping = true;
-				grounded = false;
-				wantedVel.y -= jumpSpeed;
+				m_animComponent->PlayAnim(GameEngine::EAnimationId::PlayerLeft);
 			}
+			wasNothingPressed = false;
+			wasLeftPressed = true;
+			wasRightPressed = false;
+		}
+		else if (x == 100)
+		{
+			wantedVel.x += x;
+			if (wasNothingPressed)
+			{
+				m_animComponent->PlayAnim(GameEngine::EAnimationId::PlayerRight);
+			}
+			wasNothingPressed = false;
+			wasRightPressed = true;
+			wasLeftPressed = false;
 		}
 		else
 		{
-			jumping = false;
+			wasNothingPressed = true;
+			if (wasRightPressed || wasLeftPressed) {
+				m_animComponent->PlayAnim(GameEngine::EAnimationId::None);
+			}
+		}
+
+		if (sf::Joystick::isButtonPressed(0, 0))
+		{
+			if (grounded)
+			{
+				grounded = false;
+				wantedVel.y -= jumpSpeed;
+			}
 		}
 
 		if(pawnPhy)
@@ -92,10 +114,31 @@ void PlayerMovementComponent::Update()
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		{
 			wantedVel.x -= playerVel;
+			if (wasNothingPressed)
+			{
+				m_animComponent->PlayAnim(GameEngine::EAnimationId::PlayerLeft);
+			}
+			wasNothingPressed = false;
+			wasLeftPressed = true;
+			wasRightPressed = false;
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 		{
 			wantedVel.x += playerVel;
+			if (wasNothingPressed)
+			{
+				m_animComponent->PlayAnim(GameEngine::EAnimationId::PlayerRight);
+			}
+			wasNothingPressed = false;
+			wasRightPressed = true;
+			wasLeftPressed = false;
+		} 
+		else 
+		{
+			wasNothingPressed = true;
+			if (wasRightPressed || wasLeftPressed) {
+				m_animComponent->PlayAnim(GameEngine::EAnimationId::None);
+			}
 		}
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
@@ -128,22 +171,6 @@ void PlayerMovementComponent::Update()
 	{
 		m_flyTimerDt -= dt;
 	}
-
-	if (m_animComponent)
-	{
-		if (m_flyTimerDt > 0.f)
-		{
-			if (m_animComponent->GetCurrentAnimation() != GameEngine::EAnimationId::BirdFly)
-			{
-				m_animComponent->PlayAnim(GameEngine::EAnimationId::BirdFly);
-			}
-		}
-		else if (m_animComponent->GetCurrentAnimation() != GameEngine::EAnimationId::BirdIdle)
-		{
-			m_animComponent->PlayAnim(GameEngine::EAnimationId::BirdIdle);
-		}
-	}
-
 
 	static float rotationVel = 50.f; //Deg/s
 	static float maxRotation = 20.f; //Deg

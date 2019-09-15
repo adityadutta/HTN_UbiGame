@@ -14,7 +14,7 @@ namespace Game
 		void OnAddToWorld();
 		void OnRemoveFromWorld();
 		void OnInteract();
-		void OnThreaten();
+		void OnThreaten(bool threatened) override;
 		void OnArrest();
 
 	};

@@ -8,10 +8,14 @@
 #include "GameEngine/EntitySystem/Components/SoundComponent.h"
 #include "GameEngine/Util/AnimationManager.h"
 #include "GameEngine/Util/CollisionManager.h"
+#include "SuspectEntity.h"
+#include <iostream>
+#include "Collectible.h"
+#include "GameEngine/GameEngineMain.h"
 
 using namespace Game;
 
-PlayerEntity::PlayerEntity() : lastNPCRef(nullptr)
+PlayerEntity::PlayerEntity() : lastNPCRef(nullptr), isInteractKeyPressed(false), isThreatKeyPressed(false), isArrestKeyPressed(false)
 {
 	//Movement
 	m_playerMovementComponent = static_cast<PlayerMovementComponent*>(AddComponent<PlayerMovementComponent>());
@@ -30,12 +34,6 @@ PlayerEntity::PlayerEntity() : lastNPCRef(nullptr)
 	//Collisions
 	AddComponent<PlayerCollisionComponent>();
 
-	//Particles
-	GameEngine::ParticleEmitterComponent* emitterComponent = static_cast<GameEngine::ParticleEmitterComponent*>(AddComponent<GameEngine::ParticleEmitterComponent>());
-	GameEngine::SParticleDefinition particleDef = GameEngine::SParticleDefinition(GameEngine::eTexture::Particles, 1, sf::Vector2f(32.f, 32.f), GameEngine::EAnimationId::Smoke, 1.f);
-	emitterComponent->SetParticleDefinition(particleDef);
-
-
 	//Sound
 	GameEngine::SoundComponent* const soundComponent = static_cast<GameEngine::SoundComponent*>(AddComponent<GameEngine::SoundComponent>());
 	soundComponent->SetNumSimultaneousSounds(2); // Hard coded 5 simultaneous sounds for the player
@@ -45,8 +43,10 @@ PlayerEntity::PlayerEntity() : lastNPCRef(nullptr)
 	//Camera control
 	AddComponent<PlayerCameraComponent>();
 
+	items = "Items: \n";
+
 	ui = new UIEntity();
-	ui->SetText("Hello Adventure! I am NPC.\nHello");
+	ui->SetText(items);
 	ui->SetTextSize(18);
 	ui->SetColor(sf::Color::Green);
 }
@@ -64,10 +64,11 @@ void PlayerEntity::OnAddToWorld()
 
 	if (m_animComponent)
 	{
-		m_animComponent->PlayAnim(GameEngine::EAnimationId::BirdIdle);
+		m_animComponent->PlayAnim(GameEngine::EAnimationId::None);
 	}
 
-	ui->AttachToEntity(this, -5.0f, -50.0f);
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(ui);
+	//ui->AttachToEntity(this, -100.0f, -300.0f);
 }
 
 
@@ -76,22 +77,86 @@ void PlayerEntity::OnRemoveFromWorld()
 	__super::OnRemoveFromWorld();
 }
 
-bool isInteractKeyPressed = false;
 void PlayerEntity::Update()
 {
 	__super::Update();
+
+	//UI
+	ui->SetPos(sf::Vector2f(GetPos().x - 400.0f, -250.0f));
+	ui->Update();
 
 	//Gamepad logic
 	if (sf::Joystick::isConnected(0))
 	{
 		if (sf::Joystick::isButtonPressed(0, 1))
 		{
-			if (lastNPCRef)
+			isInteractKeyPressed = true;
+		}
+		else
+		{
+			if (lastNPCRef && isInteractKeyPressed)
 			{
-				lastNPCRef->HideDialogue();
-				//GameEngine::CollisionManager::GetInstance()->UnRegisterCollidable(lastNPCRef->GetComponent<GameEngine::CollidableComponent>());
+
+				isInteractKeyPressed = false;
+				lastNPCRef->OnInteract();
+				if (Collectible* col = dynamic_cast<Collectible*>(lastNPCRef))
+				{
+					if (!col->GetHidden())
+					{
+						list.push_back(col->GetName());
+						items.append(col->GetName() + "\n");
+						ui->SetText(items);
+						col->hidden = true;
+					}
+				}
+				//std::cout << "OnInteract\n";
+			}
+
+		}
+
+		if (sf::Joystick::isButtonPressed(0, 3))
+		{
+			isThreatKeyPressed = true;
+		}
+		else
+		{
+			//Threaten
+			if (isThreatKeyPressed)
+			{
+				isThreatKeyPressed = false;
+				if (SuspectEntity* se = dynamic_cast<SuspectEntity*>(lastNPCRef))
+				{
+					bool threatenable = false;
+					for (auto item : list)
+					{
+						if (item == se->getThreatenableItem())
+						{
+							threatenable = true;
+						}
+					}
+					se->OnThreaten(threatenable);
+					//std::cout << "Threaten\n";
+				}
 			}
 		}
+		//Arrest
+		if (sf::Joystick::isButtonPressed(0, 2))
+		{
+			isArrestKeyPressed = true;
+		}
+		else
+		{
+			if (isArrestKeyPressed)
+			{
+				isArrestKeyPressed = false;
+				if (SuspectEntity* se = dynamic_cast<SuspectEntity*>(lastNPCRef))
+				{
+					se->OnArrest();
+					//std::cout << "Arrest\n";
+				}
+			}
+		}
+
 	}
 	else
 	{
@@ -100,8 +165,11 @@ void PlayerEntity::Update()
 			if (lastNPCRef && !isInteractKeyPressed)
 			{
 				isInteractKeyPressed = true;
-				lastNPCRef->HideDialogue();
-				//GameEngine::CollisionManager::GetInstance()->UnRegisterCollidable(lastNPCRef->GetComponent<GameEngine::CollidableComponent>());
+				lastNPCRef->OnInteract();
+				if (Collectible* col = dynamic_cast<Collectible*>(lastNPCRef))
+				{
+					items.append(col->GetName() + "\n");
+				}
 			}
 			else
 			{
