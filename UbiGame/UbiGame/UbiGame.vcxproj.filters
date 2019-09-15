@@ -42,6 +42,7 @@
     <ClCompile Include="Source\Game\GameEntities\SubEntities\Collectibles\Panacea.cpp" />
     <ClCompile Include="Source\Game\GameEntities\SubEntities\Collectibles\GreenVial.cpp" />
     <ClCompile Include="Source\Game\GameEntities\SubEntities\Collectibles\Bell.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\BackgroundEntity.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Game\GameEntities\SubEntities\Collectibles\BloodiedHammer.h" />
@@ -84,5 +85,6 @@
     <ClInclude Include="Source\Game\GameEntities\SubEntities\Collectibles\Panacea.h" />
     <ClInclude Include="Source\Game\GameEntities\SubEntities\Collectibles\GreenVial.h" />
     <ClInclude Include="Source\Game\GameEntities\SubEntities\Collectibles\Bell.h" />
+    <ClInclude Include="Source\Game\GameEntities\BackgroundEntity.h" />
   </ItemGroup>
 </Project>
