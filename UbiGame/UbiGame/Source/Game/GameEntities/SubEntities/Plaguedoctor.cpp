@@ -1,29 +1,30 @@
-#include "Blacksmith.h"
+#include "Plaguedoctor.h"
 
 #include "GameEngine/Util/AnimationManager.h"
 
 using namespace Game;
 
-Blacksmith::Blacksmith()
+Plaguedoctor::Plaguedoctor()
 {
 	//Render 
 	m_renderComponent = static_cast<GameEngine::SpriteRenderComponent*>(AddComponent<GameEngine::SpriteRenderComponent>());
-	m_renderComponent->SetTexture(GameEngine::eTexture::Blacksmith);
+	m_renderComponent->SetTexture(GameEngine::eTexture::PlagueDoctor);
 	m_renderComponent->SetZLevel(2);
 
 	//Collision
 	collider = static_cast<GameEngine::CollidableComponent*>(AddComponent<GameEngine::CollidableComponent>());
 	collider->SetTag("NPC");
 
-	dialogues.at(0) = std::string("Hello! I am the Blacksmith.");
+	dialogues.at(0) = std::string("Hello! I am the Plauge Doctor.");
+	dialogues.at(1) = std::string("The Blacksmith has been up to suspicious activity recently.\n You should talk to them");
 	SetDialogue(0);
 }
 
-Blacksmith::~Blacksmith()
+Plaguedoctor::~Plaguedoctor()
 {
 }
 
-void Blacksmith::OnAddToWorld()
+void Plaguedoctor::OnAddToWorld()
 {
 	__super::OnAddToWorld();
 
@@ -31,7 +32,7 @@ void Blacksmith::OnAddToWorld()
 	{
 		uiEntity->SetText("");
 		uiEntity->SetTextSize(18);
-		uiEntity->SetColor(sf::Color::Blue);
+		uiEntity->SetColor(sf::Color::Red);
 	}
 
 	if (m_animComponent)
@@ -40,12 +41,12 @@ void Blacksmith::OnAddToWorld()
 	}
 }
 
-void Blacksmith::OnRemoveFromWorld()
+void Plaguedoctor::OnRemoveFromWorld()
 {
 	__super::OnRemoveFromWorld();
 }
 
-void Blacksmith::OnInteract()
+void Plaguedoctor::OnInteract()
 {
 	if (uiEntity)
 	{
@@ -53,19 +54,18 @@ void Blacksmith::OnInteract()
 	}
 }
 
-void Blacksmith::OnThreaten()
+void Plaguedoctor::OnThreaten()
 {
 	if (uiEntity)
 	{
-		//Success
-		SetDialogue(3);
+		SetDialogue(4);
 	}
 }
 
-void Blacksmith::OnArrest()
+void Plaguedoctor::OnArrest()
 {
 	if (uiEntity)
 	{
-		SetDialogue(6);
+		SetDialogue(7);
 	}
 }

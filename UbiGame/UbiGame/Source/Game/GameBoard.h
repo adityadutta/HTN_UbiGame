@@ -54,9 +54,10 @@ namespace Game
 
 		AnimatedObjectEntity* cow;
 
-		NPCEntity* blacksmith;
-		NPCEntity* blacksmith2;
-
+		NPCEntity* m_blacksmith;
+		NPCEntity* m_shopkeeper;
+		NPCEntity* m_towncrier;
+		NPCEntity* m_plaguedoctor;
 	};
 }
 

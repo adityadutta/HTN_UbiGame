@@ -19,6 +19,9 @@ namespace GameEngine
 			Ground,
 			Cow,
 			Blacksmith,
+			Shopkeeper,
+			Towncrier,
+			PlagueDoctor,
 			Count,
 		};
 	}	
@@ -35,6 +38,9 @@ namespace GameEngine
 		case eTexture::Ground:     return "ground.png";
 		case eTexture::Cow:        return "cow_animation.png";
 		case eTexture::Blacksmith: return "blacksmith.png";
+		case eTexture::Shopkeeper: return "blacksmith.png";
+		case eTexture::Towncrier: return "blacksmith.png";
+		case eTexture::PlagueDoctor: return "blacksmith.png";
 		default:       return "UnknownTexType";
 		}
 	}
@@ -71,7 +77,11 @@ namespace TextureHelper
 		case  GameEngine::eTexture::Particles: return sf::Vector2f(31.f, 32.f);
 		case  GameEngine::eTexture::Ground: return sf::Vector2f(480.f, 100.f);
 		case  GameEngine::eTexture::Cow: return sf::Vector2f(476.f, 304.f);
-		case  GameEngine::eTexture::Blacksmith: return sf::Vector2f(150.0f, 150.f);
+		case  GameEngine::eTexture::Blacksmith:
+		case  GameEngine::eTexture::Shopkeeper: 
+		case  GameEngine::eTexture::Towncrier:
+		case  GameEngine::eTexture::PlagueDoctor:
+			return sf::Vector2f(150.0f, 150.f);
 		default:							 return sf::Vector2f(-1.f, -1.f);
 		}
 	}
