@@ -99,18 +99,10 @@ void PlayerMovementComponent::Update()
 
 		if (sf::Joystick::isButtonPressed(0, 0))
 		{
-			jumping = true;
-		}
-		else
-		{
-			if (jumping)
+			if (grounded)
 			{
-				jumping = false;
-				if (grounded)
-				{
-					grounded = false;
-					wantedVel.y -= jumpSpeed;
-				}
+				grounded = false;
+				wantedVel.y -= jumpSpeed;
 			}
 		}
 
@@ -122,7 +114,6 @@ void PlayerMovementComponent::Update()
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		{
 			wantedVel.x -= playerVel;
-			//m_animComponent->PlayAnim(GameEngine::EAnimationId::PlayerLeft);
 			if (wasNothingPressed)
 			{
 				m_animComponent->PlayAnim(GameEngine::EAnimationId::PlayerLeft);
@@ -134,7 +125,6 @@ void PlayerMovementComponent::Update()
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 		{
 			wantedVel.x += playerVel;
-			//m_animComponent->PlayAnim(GameEngine::EAnimationId::PlayerRight);
 			if (wasNothingPressed)
 			{
 				m_animComponent->PlayAnim(GameEngine::EAnimationId::PlayerRight);

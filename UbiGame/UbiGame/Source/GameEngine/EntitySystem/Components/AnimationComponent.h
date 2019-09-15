@@ -14,7 +14,6 @@ namespace GameEngine
 		virtual void OnRemoveFromWorld() override;
 
 		void PlayAnim(EAnimationId::type animId);
-		//void StopAnim(EAnimationId::type animId);
 		virtual void Update() override;		
 		sf::Vector2i GetWantedTileIndex() const;
 

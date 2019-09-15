@@ -61,19 +61,6 @@ void AnimationComponent::Update()
 	}
 }
 
-/*
-void AnimationComponent::StopAnim(EAnimationId::type animId)
-{
-	if (!IsAnimPlaying) {
-		return;
-	}
-
-	m_currentAnim = 0;
-	m_currentAnim = animId;
-
-}
-*/
-
 
 void AnimationComponent::PlayAnim(EAnimationId::type animId)
 {

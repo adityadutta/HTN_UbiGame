@@ -41,18 +41,15 @@ namespace Game
 		void UpdateBackGround();
 
 		void CreateGround();
-		//void UpdateGround();
 
 		PlayerEntity* m_player;
-		//GroundEntity* m_ground_1;
-		//GroundEntity* m_ground_2;
 		GameEngine::Entity* m_backGround;
 
 		std::vector<GameEngine::Entity*> m_obstacles;
 		float m_lastObstacleSpawnTimer;
 		bool  m_isGameOver;
 
-		AnimatedObjectEntity* cow;
+		AnimatedObjectEntity* m_cow;
 
 		NPCEntity* m_blacksmith;
 		NPCEntity* m_shopkeeper;

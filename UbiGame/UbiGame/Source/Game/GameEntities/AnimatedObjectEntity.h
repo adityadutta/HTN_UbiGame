@@ -11,6 +11,7 @@ namespace Game
 	{
 	public:
 		AnimatedObjectEntity();
+		AnimatedObjectEntity(GameEngine::EAnimationId::type anim, GameEngine::eTexture::type text);
 		~AnimatedObjectEntity();
 
 		virtual void OnAddToWorld() override;
@@ -19,6 +20,11 @@ namespace Game
 	protected:
 		GameEngine::SpriteRenderComponent* m_renderComponent;
 		GameEngine::AnimationComponent* m_animComponent;
+
+		void SetupObject();
+
+		GameEngine::EAnimationId::type animation;
+		GameEngine::eTexture::type texture;
 
 	};
 }
