@@ -21,6 +21,7 @@ namespace Game
 
 		GameEngine::SoundManager::SoundId m_upSoundId;
 		GameEngine::SoundManager::SoundId m_downSoundId;
+		GameEngine::SoundManager::SoundId m_musicId;
 	};
 }
 

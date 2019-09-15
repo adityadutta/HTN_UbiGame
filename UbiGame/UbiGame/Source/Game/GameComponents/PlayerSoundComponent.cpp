@@ -22,6 +22,9 @@ void PlayerSoundComponent::OnAddToWorld()
 	{
 		m_upSoundId   = soundComponent->LoadSoundFromFile("Resources/snd/thunder.wav");
 		m_downSoundId = soundComponent->LoadSoundFromFile("Resources/snd/glassbreak.wav");
+		//m_musicId = soundComponent->LoadSoundFromFile("Resources/snd/music.wav");
+
+		//soundComponent->PlaySound(m_musicId);
 	}
 }
 

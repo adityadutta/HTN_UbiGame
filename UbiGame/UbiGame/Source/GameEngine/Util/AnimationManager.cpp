@@ -39,7 +39,7 @@ void AnimationManager::InitStaticGameAnimations()
 			10)
 	);
 
-	m_animDefinitions.push_back
+	/*m_animDefinitions.push_back
 	(
 		SAnimationDefinition(
 			EAnimationId::PlayerIdle,
@@ -47,14 +47,14 @@ void AnimationManager::InitStaticGameAnimations()
 			sf::Vector2i(0, 0),
 			1,
 			1)
-	);
+	);*/
 
 	m_animDefinitions.push_back
 	(
 		SAnimationDefinition(
 			EAnimationId::PlayerAttack,
-			eTexture::PlayerAttack,
-			sf::Vector2i(0, 0),
+			eTexture::Player,
+			sf::Vector2i(0, 3),
 			15,
 			10)
 	);
@@ -63,9 +63,9 @@ void AnimationManager::InitStaticGameAnimations()
 	(
 		SAnimationDefinition(
 			EAnimationId::PlayerDead,
-			eTexture::PlayerDead,
-			sf::Vector2i(0, 0),
-			19,
+			eTexture::Player,
+			sf::Vector2i(0, 2),
+			18,
 			8)
 	);
 

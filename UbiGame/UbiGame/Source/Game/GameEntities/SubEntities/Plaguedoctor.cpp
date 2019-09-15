@@ -16,7 +16,7 @@ Plaguedoctor::Plaguedoctor()
 	collider->SetTag("NPC");
 
 	dialogues.at(0) = std::string("Hello! I am the Plague Doctor.");
-	dialogues.at(1) = std::string("The Blacksmith has been up to suspicious activity recently.\n You should talk to him.");
+	dialogues.at(2) = std::string("The Blacksmith has been up to suspicious activity recently.\n You should talk to him.");
 	SetDialogue(0);
 
 	threatenableItem = "Green Vial";

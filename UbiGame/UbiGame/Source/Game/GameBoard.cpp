@@ -29,7 +29,7 @@ GameBoard::GameBoard()
 	
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
 	m_player->SetPos(sf::Vector2f(0.f, 0.f));	
-	m_player->SetSize(sf::Vector2f(130.f, 150.f));
+	m_player->SetSize(sf::Vector2f(200.f, 250.f));
 	
 	CreateBackGround();
 	CreateGround();

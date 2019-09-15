@@ -13,7 +13,7 @@ namespace GameEngine
 		{
 			PlayerRight,
 			PlayerLeft,
-			PlayerIdle,
+			//PlayerIdle,
 			PlayerAttack,
 			PlayerDead,
 			CowAnim,
