@@ -22,7 +22,12 @@ namespace Game
 
 		virtual void Update() override;
 
+		void Death();
+		void Attack();
+
 		NPCEntity* lastNPCRef;
+		bool isDead;
+
 
 	protected:
 		GameEngine::SpriteRenderComponent* m_renderComponent;		

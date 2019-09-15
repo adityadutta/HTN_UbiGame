@@ -89,6 +89,7 @@ void Shopkeeper::OnThreaten(bool threatened)
 	else
 	{
 		SetDialogue(5);
+		isPlayerKilled = true;
 	}
 }
 
@@ -97,5 +98,6 @@ void Shopkeeper::OnArrest()
 	if (uiEntity)
 	{
 		SetDialogue(6);
+		isPlayerKilled = true;
 	}
 }

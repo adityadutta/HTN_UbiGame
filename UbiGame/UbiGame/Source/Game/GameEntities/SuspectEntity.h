@@ -13,10 +13,12 @@ namespace Game
 		virtual void OnArrest() = 0;
 		bool randomInteractCheck();
 		std::string getThreatenableItem();
+		bool isPlayerDead();
 
 	protected:
 		bool randomInteractChecked;
 		int randomFirstCheckIndex;
 		std::string threatenableItem;
+		bool isPlayerKilled;
 	};
 }

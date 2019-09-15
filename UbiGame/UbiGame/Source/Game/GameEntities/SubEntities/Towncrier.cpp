@@ -89,6 +89,7 @@ void Towncrier::OnThreaten(bool threatened)
 	else
 	{
 		SetDialogue(5);
+		isPlayerKilled = true;
 	}
 }
 
@@ -97,5 +98,6 @@ void Towncrier::OnArrest()
 	if (uiEntity)
 	{
 		SetDialogue(6);
+		isPlayerKilled = true;
 	}
 }
