@@ -92,11 +92,18 @@ GameBoard::GameBoard()
 	bell->SetPos(sf::Vector2f(2200.0f, 200.0f));
 	bell->SetSize(sf::Vector2f(50.0f, 50.0f));
 
+	musicEntity = new MusicEntity();
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(musicEntity);
 }
 
 
 GameBoard::~GameBoard()
 {
+	if(musicEntity)
+	{
+		delete musicEntity;
+		musicEntity = nullptr;
+	}
 
 }
 

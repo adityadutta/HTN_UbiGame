@@ -7,6 +7,7 @@
 #include "GameEntities/AnimatedObjectEntity.h"
 #include "GameEntities/NPCEntity.h"
 #include "GameEntities/Collectible.h"
+#include "GameEntities/MusicEntity.h"
 
 namespace Game
 {
@@ -62,6 +63,8 @@ namespace Game
 		Collectible* panacea;
 		Collectible* greenVial;
 		Collectible* bell;
+
+		MusicEntity* musicEntity;
 	};
 }
 

@@ -22,7 +22,10 @@ void SoundComponent::OnAddToWorld()
 
 void SoundComponent::OnRemoveFromWorld()
 {
-	__super::OnAddToWorld();
+	//BUG: on remove calls on add
+	//__super::OnAddToWorld();
+
+	__super::OnRemoveFromWorld();
 }
 
 
