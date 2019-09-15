@@ -42,7 +42,7 @@ std::vector<GameEngine::Entity*> BackgroundEntity::renderObjects() {
 		GameEngine::SpriteRenderComponent* render2 = static_cast<GameEngine::SpriteRenderComponent*>(bg2->AddComponent<GameEngine::SpriteRenderComponent>());
 		render2->SetTexture(GameEngine::eTexture::BGObject3);
 		render2->SetZLevel(1);
-		bg2->SetPos(sf::Vector2f(1000.0f + 4000 * (i), 150.0f));
+		bg2->SetPos(sf::Vector2f(1300.f + 4000 * (i), 150.0f));
 		bg2->SetSize(sf::Vector2f(120.f, 250.f));
 		GameEngine::GameEngineMain::GetInstance()->AddEntity(bg2);
 
@@ -52,7 +52,7 @@ std::vector<GameEngine::Entity*> BackgroundEntity::renderObjects() {
 		GameEngine::SpriteRenderComponent* render3 = static_cast<GameEngine::SpriteRenderComponent*>(bg3->AddComponent<GameEngine::SpriteRenderComponent>());
 		render3->SetTexture(GameEngine::eTexture::BGObject4);
 		render3->SetZLevel(1);
-		bg3->SetPos(sf::Vector2f(1700 + 4000 * (i), 140.f));
+		bg3->SetPos(sf::Vector2f(750.f + 4000 * (i), 140.f));
 		bg3->SetSize(sf::Vector2f(500.f, 280.f));
 		GameEngine::GameEngineMain::GetInstance()->AddEntity(bg3);
 
@@ -62,7 +62,7 @@ std::vector<GameEngine::Entity*> BackgroundEntity::renderObjects() {
 		GameEngine::SpriteRenderComponent* render4 = static_cast<GameEngine::SpriteRenderComponent*>(bg4->AddComponent<GameEngine::SpriteRenderComponent>());
 		render4->SetTexture(GameEngine::eTexture::BGObject5);
 		render4->SetZLevel(1);
-		bg4->SetPos(sf::Vector2f(3000 + 4000 * (i), 150.f));
+		bg4->SetPos(sf::Vector2f(1950.0f + 4000 * (i), 150.f));
 		bg4->SetSize(sf::Vector2f(300.f, 300.f));
 		GameEngine::GameEngineMain::GetInstance()->AddEntity(bg4);
 
@@ -72,7 +72,7 @@ std::vector<GameEngine::Entity*> BackgroundEntity::renderObjects() {
 		GameEngine::SpriteRenderComponent* render5 = static_cast<GameEngine::SpriteRenderComponent*>(bg5->AddComponent<GameEngine::SpriteRenderComponent>());
 		render5->SetTexture(GameEngine::eTexture::BGObject6);
 		render5->SetZLevel(1);
-		bg5->SetPos(sf::Vector2f(800 + 4000 * (i), 230.f));
+		bg5->SetPos(sf::Vector2f(-375 + 4000 * (i), 230.f));
 		bg5->SetSize(sf::Vector2f(70.f, 70.f));
 		GameEngine::GameEngineMain::GetInstance()->AddEntity(bg5);
 
@@ -82,7 +82,7 @@ std::vector<GameEngine::Entity*> BackgroundEntity::renderObjects() {
 		GameEngine::SpriteRenderComponent* render6 = static_cast<GameEngine::SpriteRenderComponent*>(bg6->AddComponent<GameEngine::SpriteRenderComponent>());
 		render6->SetTexture(GameEngine::eTexture::BGObject7);
 		render6->SetZLevel(1);
-		bg6->SetPos(sf::Vector2f(2500 + 4000 * (i), 230.f));
+		bg6->SetPos(sf::Vector2f(2200.0f + 4000 * (i), 230.f));
 		bg6->SetSize(sf::Vector2f(70.f, 70.f));
 		GameEngine::GameEngineMain::GetInstance()->AddEntity(bg6);
 
