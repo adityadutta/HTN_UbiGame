@@ -8,11 +8,17 @@ public:
 	~Collectible();
 
 	virtual void OnInteract() override;
+	bool GetHidden() const { return hidden; }
+
+	virtual void OnAddToWorld() override;
 
 	void SetName(std::string name_);
 	std::string GetName();
 
+	bool hidden;
 private:
 	std::string name;
+
+	
 };
 

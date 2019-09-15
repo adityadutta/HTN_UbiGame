@@ -6,6 +6,7 @@
 #include "GameEntities/GroundEntity.h"
 #include "GameEntities/AnimatedObjectEntity.h"
 #include "GameEntities/NPCEntity.h"
+#include "GameEntities/Collectible.h"
 
 namespace Game
 {
@@ -58,6 +59,11 @@ namespace Game
 		NPCEntity* m_shopkeeper;
 		NPCEntity* m_towncrier;
 		NPCEntity* m_plaguedoctor;
+
+		Collectible* bloodHammer;
+		Collectible* panacea;
+		Collectible* greenVial;
+		Collectible* bell;
 	};
 }
 

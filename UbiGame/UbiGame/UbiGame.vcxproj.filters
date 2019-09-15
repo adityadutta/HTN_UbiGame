@@ -1,250 +1,88 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Source Files\GameEngine">
-      <UniqueIdentifier>{142392d3-07ff-4296-ac90-43d6e7a6f943}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="Source\Game\GameEntities\SubEntities\Collectibles\BloodiedHammer.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\Collectible.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\AnimatedObjectEntity.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\GroundEntity.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\NPCEntity.cpp" />
+    <ClCompile Include="Source\Game\GameComponents\PawnPhysicsComponent.cpp" />
+    <ClCompile Include="Source\Game\GameComponents\PlayerCollisionComponent.cpp" />
+    <ClCompile Include="Source\Game\GameComponents\PlayerCameraComponent.cpp" />
+    <ClCompile Include="Source\GameEngine\Util\CameraManager.cpp" />
+    <ClCompile Include="Source\Game\GameComponents\PlayerSoundComponent.cpp" />
+    <ClCompile Include="Source\GameEngine\EntitySystem\Components\ParticleComponent.cpp" />
+    <ClCompile Include="Source\GameEngine\EntitySystem\Components\ParticleEmitterComponent.cpp" />
+    <ClCompile Include="Source\GameEngine\EntitySystem\Components\SoundComponent.cpp" />
+    <ClCompile Include="Source\GameEngine\Util\AnimationManager.cpp" />
+    <ClCompile Include="Source\GameEngine\EntitySystem\Components\AnimationComponent.cpp" />
+    <ClCompile Include="Source\GameEngine\EntitySystem\Components\CollidablePhysicsComponent.cpp" />
+    <ClCompile Include="Source\GameEngine\EntitySystem\Components\CollidableComponent.cpp" />
+    <ClCompile Include="Source\GameEngine\Util\CollisionManager.cpp" />
+    <ClCompile Include="Source\GameEngine\Util\SoundManager.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\ObstacleEntity.cpp" />
+    <ClCompile Include="Source\Game\GameComponents\PlayerMovementComponent.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\PlayerEntity.cpp" />
+    <ClCompile Include="Source\Game\GameBoard.cpp" />
+    <ClCompile Include="Source\GameEngine\EntitySystem\Components\RenderComponent.cpp" />
+    <ClCompile Include="Source\GameEngine\EntitySystem\Component.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Source\GameEngine\EntitySystem\Entity.cpp" />
+    <ClCompile Include="Source\GameEngine\GameEngineMain.cpp" />
+    <ClCompile Include="Source\GameEngine\Util\TextureManager.cpp" />
+    <ClCompile Include="Source\GameEngine\EntitySystem\Components\SpriteRenderComponent.cpp" />
+    <ClCompile Include="Source\GameEngine\EntitySystem\Components\TextComponent.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\SubEntities\Blacksmith.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\SubEntities\Plagued.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\SubEntities\Plaguedoctor.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\SubEntities\Shopkeeper.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\SubEntities\Towncrier.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\SuspectEntity.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\UIEntity.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\SubEntities\Collectibles\Panacea.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\SubEntities\Collectibles\GreenVial.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\SubEntities\Collectibles\Bell.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameEngine\GameEngineMain.cpp">
-      <Filter>Source Files\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameEngine\EntitySystem\Entity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameEngine\EntitySystem\Component.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameEngine\EntitySystem\Components\RenderComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\GameBoard.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\GameEntities\PlayerEntity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\GameComponents\PlayerMovementComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\GameEntities\ObstacleEntity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameEngine\Util\CollisionManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameEngine\EntitySystem\Components\CollidableComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameEngine\EntitySystem\Components\CollidablePhysicsComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameEngine\Util\TextureManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameEngine\EntitySystem\Components\SpriteRenderComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameEngine\EntitySystem\Components\AnimationComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameEngine\Util\AnimationManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameEngine\EntitySystem\Components\ParticleComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameEngine\EntitySystem\Components\ParticleEmitterComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameEngine\EntitySystem\Components\SoundComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameEngine\Util\SoundManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\GameComponents\PlayerSoundComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameEngine\Util\CameraManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\GameComponents\PlayerCameraComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameEngine\EntitySystem\Components\TextComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\GameEntities\UIEntity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\GameComponents\PlayerCollisionComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\GameComponents\PawnPhysicsComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\GameEntities\SubEntities\Blacksmith.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\GameEntities\SubEntities\Shopkeeper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\GameEntities\SubEntities\Towncrier.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\GameEntities\SuspectEntity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\GameEntities\NPCEntity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\GameEntities\GroundEntity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="Source\Game\GameEntities\Collectible.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\GameEntities\SubEntities\Collectibles\BloodiedHammer.cpp">
-=======
-<<<<<<< HEAD
-    <ClCompile Include="Source\Game\GameEntities\AnimatedObjectEntity.cpp">
-=======
-    <ClCompile Include="Source\Game\GameEntities\SubEntities\Plagued.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\GameEntities\SubEntities\Plaguedoctor.cpp">
->>>>>>> 2ac965fb08977daa3484ad8d269740c86919dbd4
->>>>>>> 01a2beea36b4f0d5543776774799ffba3bc9f40c
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Source\GameEngine\GameEngineMain.h">
-      <Filter>Source Files\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameEngine\EntitySystem\Entity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameEngine\EntitySystem\Component.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameEngine\EntitySystem\Components\RenderComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\GameBoard.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\GameEntities\PlayerEntity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\GameComponents\PlayerMovementComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\GameEntities\ObstacleEntity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameEngine\Util\CollisionManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameEngine\EntitySystem\Components\CollidableComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameEngine\EntitySystem\Components\CollidablePhysicsComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameEngine\Util\TextureManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameEngine\EntitySystem\Components\SpriteRenderComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameEngine\EntitySystem\Components\AnimationComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameEngine\Util\AnimationManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameEngine\EntitySystem\Components\ParticleComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameEngine\EntitySystem\Components\ParticleEmitterComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameEngine\EntitySystem\Components\SoundComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameEngine\Util\SoundManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\GameComponents\PlayerSoundComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameEngine\Util\CameraManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\GameComponents\PlayerCameraComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameEngine\EntitySystem\Components\TextComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\GameEntities\UIEntity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\GameComponents\PlayerCollisionComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\GameComponents\PawnPhysicsComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\GameEntities\SubEntities\Blacksmith.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\GameEntities\SubEntities\Shopkeeper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\GameEntities\SubEntities\Towncrier.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\GameEntities\SuspectEntity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\GameEntities\NPCEntity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\GameEntities\GroundEntity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="Source\Game\GameEntities\Collectible.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\GameEntities\SubEntities\Collectibles\BloodiedHammer.h">
-=======
-    <ClInclude Include="Source\Game\GameEntities\AnimatedObjectEntity.h">
-    <ClInclude Include="Source\Game\GameEntities\SubEntities\Plagued.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\GameEntities\SubEntities\Plaguedoctor.h">
->>>>>>> 01a2beea36b4f0d5543776774799ffba3bc9f40c
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="Source\Game\GameEntities\SubEntities\Collectibles\BloodiedHammer.h" />
+    <ClInclude Include="Source\Game\GameEntities\Collectible.h" />
+    <ClInclude Include="Source\Game\GameEntities\AnimatedObjectEntity.h" />
+    <ClInclude Include="Source\Game\GameEntities\GroundEntity.h" />
+    <ClInclude Include="Source\Game\GameEntities\NPCEntity.h" />
+    <ClInclude Include="Source\Game\GameComponents\PawnPhysicsComponent.h" />
+    <ClInclude Include="Source\Game\GameComponents\PlayerCollisionComponent.h" />
+    <ClInclude Include="Source\Game\GameComponents\PlayerCameraComponent.h" />
+    <ClInclude Include="Source\GameEngine\Util\CameraManager.h" />
+    <ClInclude Include="Source\Game\GameComponents\PlayerSoundComponent.h" />
+    <ClInclude Include="Source\GameEngine\EntitySystem\Components\ParticleComponent.h" />
+    <ClInclude Include="Source\GameEngine\EntitySystem\Components\ParticleEmitterComponent.h" />
+    <ClInclude Include="Source\GameEngine\EntitySystem\Components\SoundComponent.h" />
+    <ClInclude Include="Source\GameEngine\Util\AnimationManager.h" />
+    <ClInclude Include="Source\GameEngine\EntitySystem\Components\AnimationComponent.h" />
+    <ClInclude Include="Source\GameEngine\EntitySystem\Components\CollidablePhysicsComponent.h" />
+    <ClInclude Include="Source\GameEngine\EntitySystem\Components\CollidableComponent.h" />
+    <ClInclude Include="Source\GameEngine\Util\CollisionManager.h" />
+    <ClInclude Include="Source\GameEngine\Util\SoundManager.h" />
+    <ClInclude Include="Source\Game\GameEntities\ObstacleEntity.h" />
+    <ClInclude Include="Source\Game\GameComponents\PlayerMovementComponent.h" />
+    <ClInclude Include="Source\Game\GameEntities\PlayerEntity.h" />
+    <ClInclude Include="Source\Game\GameBoard.h" />
+    <ClInclude Include="Source\GameEngine\EntitySystem\Components\RenderComponent.h" />
+    <ClInclude Include="Source\GameEngine\EntitySystem\Component.h" />
+    <ClInclude Include="Source\GameEngine\EntitySystem\Entity.h" />
+    <ClInclude Include="Source\GameEngine\GameEngineMain.h" />
+    <ClInclude Include="Source\GameEngine\Util\TextureManager.h" />
+    <ClInclude Include="Source\GameEngine\EntitySystem\Components\SpriteRenderComponent.h" />
+    <ClInclude Include="Source\GameEngine\EntitySystem\Components\TextComponent.h" />
+    <ClInclude Include="Source\Game\GameEntities\SubEntities\Blacksmith.h" />
+    <ClInclude Include="Source\Game\GameEntities\SubEntities\Plagued.h" />
+    <ClInclude Include="Source\Game\GameEntities\SubEntities\Plaguedoctor.h" />
+    <ClInclude Include="Source\Game\GameEntities\SubEntities\Shopkeeper.h" />
+    <ClInclude Include="Source\Game\GameEntities\SubEntities\Towncrier.h" />
+    <ClInclude Include="Source\Game\GameEntities\SuspectEntity.h" />
+    <ClInclude Include="Source\Game\GameEntities\UIEntity.h" />
+    <ClInclude Include="Source\Game\GameEntities\SubEntities\Collectibles\Panacea.h" />
+    <ClInclude Include="Source\Game\GameEntities\SubEntities\Collectibles\GreenVial.h" />
+    <ClInclude Include="Source\Game\GameEntities\SubEntities\Collectibles\Bell.h" />
   </ItemGroup>
 </Project>

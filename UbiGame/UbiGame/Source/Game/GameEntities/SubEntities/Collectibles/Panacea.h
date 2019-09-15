@@ -3,11 +3,12 @@
 
 namespace Game
 {
-	class BloodiedHammer : public Collectible
+
+	class Panacea : public Collectible
 	{
 	public:
-		BloodiedHammer();
-		~BloodiedHammer();
+		Panacea();
+		~Panacea();
 	};
-}
 
+}

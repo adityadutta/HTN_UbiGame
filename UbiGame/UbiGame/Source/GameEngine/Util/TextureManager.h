@@ -84,10 +84,10 @@ namespace TextureHelper
 		case  GameEngine::eTexture::BG:	     return sf::Vector2f(500.f, 500.f);
 		case  GameEngine::eTexture::Particles: return sf::Vector2f(31.f, 32.f);
 		case  GameEngine::eTexture::Ground: return sf::Vector2f(480.f, 100.f);
-		case  GameEngine::eTexture::Blacksmith: return sf::Vector2f(150.0f, 150.f);
-		case  GameEngine::eTexture::Shopkeeper: return sf::Vector2f(150.0f, 150.f);
-		case  GameEngine::eTexture::Towncrier: return sf::Vector2f(150.0f, 150.f);
-		case  GameEngine::eTexture::PlagueDoctor: return sf::Vector2f(150.0f, 150.f);
+		case  GameEngine::eTexture::Blacksmith: return sf::Vector2f(225.0f, 225.0f);
+		case  GameEngine::eTexture::Shopkeeper: return sf::Vector2f(225.0f, 225.0f);
+		case  GameEngine::eTexture::Towncrier: return sf::Vector2f(225.0f, 225.0f);
+		case  GameEngine::eTexture::PlagueDoctor: return sf::Vector2f(225.0f, 225.0f);
 		case  GameEngine::eTexture::BloodiedHammer: return sf::Vector2f(32.0f, 32.0f);
 		case  GameEngine::eTexture::Panacea:return sf::Vector2f(32.0f, 32.0f);
 		case  GameEngine::eTexture::GreenVial:return sf::Vector2f(32.0f, 32.0f);

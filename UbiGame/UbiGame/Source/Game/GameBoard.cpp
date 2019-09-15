@@ -1,7 +1,6 @@
 #include "GameBoard.h"
 
 #include "GameEngine\GameEngineMain.h"
-#include "GameEngine\EntitySystem\Components\CollidableComponent.h"
 #include "GameEngine\EntitySystem\Components\SpriteRenderComponent.h"
 #include "GameEngine\Util\CameraManager.h"
 #include "Game\GameEntities\PlayerEntity.h"
@@ -12,6 +11,10 @@
 #include "GameEntities/SubEntities/Shopkeeper.h"
 #include "GameEntities/SubEntities/Towncrier.h"
 #include "GameEntities/SubEntities/Plaguedoctor.h"
+#include "GameEntities/SubEntities/Collectibles/BloodiedHammer.h"
+#include "GameEntities/SubEntities/Collectibles/Panacea.h"
+#include "GameEntities/SubEntities/Collectibles/GreenVial.h"
+#include "GameEntities/SubEntities/Collectibles/Bell.h"
 
 using namespace Game;
 
@@ -45,26 +48,49 @@ GameBoard::GameBoard()
 	//BlackSmith
 	m_blacksmith = new Blacksmith();
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_blacksmith);
-	m_blacksmith->SetPos(sf::Vector2f(100.0f, 200.0f));
-	m_blacksmith->SetSize(sf::Vector2f(150.0f, 150.f));
+	m_blacksmith->SetPos(sf::Vector2f(100.0f, 220.0f));
+	m_blacksmith->SetSize(sf::Vector2f(180.0f, 180.0f));
 
 	//ShopKeeper
 	m_shopkeeper = new Shopkeeper();
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_shopkeeper);
-	m_shopkeeper->SetPos(sf::Vector2f(300.0f, 200.0f));
-	m_shopkeeper->SetSize(sf::Vector2f(150.0f, 150.f));
+	m_shopkeeper->SetPos(sf::Vector2f(600.0f, 200.0f));
+	m_shopkeeper->SetSize(sf::Vector2f(180.0f, 180.0f));
 
 	//ShopKeeper
 	m_towncrier = new Towncrier();
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_towncrier);
-	m_towncrier->SetPos(sf::Vector2f(700.0f, 200.0f));
-	m_towncrier->SetSize(sf::Vector2f(150.0f, 150.f));
+	m_towncrier->SetPos(sf::Vector2f(1200.0f, 200.0f));
+	m_towncrier->SetSize(sf::Vector2f(180.0f, 180.0f));
 
 	//Plaguedoctor
 	m_plaguedoctor = new Plaguedoctor();
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_plaguedoctor);
-	m_plaguedoctor->SetPos(sf::Vector2f(1000.0f, 200.0f));
-	m_plaguedoctor->SetSize(sf::Vector2f(150.0f, 150.f));
+	m_plaguedoctor->SetPos(sf::Vector2f(1600.0f, 200.0f));
+	m_plaguedoctor->SetSize(sf::Vector2f(180.0f, 180.0f));
+
+	//Collectibles
+
+	bloodHammer = new BloodiedHammer();
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(bloodHammer);
+	bloodHammer->SetPos(sf::Vector2f(800.0f, 200.0f));
+	bloodHammer->SetSize(sf::Vector2f(50.0f, 50.0f));
+	
+	panacea = new Panacea();
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(panacea);
+	panacea->SetPos(sf::Vector2f(1800.0f, 200.0f));
+	panacea->SetSize(sf::Vector2f(50.0f, 50.0f));
+	
+	greenVial = new GreenVial();
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(greenVial);
+	greenVial->SetPos(sf::Vector2f(2000.0f, 200.0f));
+	greenVial->SetSize(sf::Vector2f(50.0f, 50.0f));
+	
+	bell = new Bell();
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(bell);
+	bell->SetPos(sf::Vector2f(2200.0f, 200.0f));
+	bell->SetSize(sf::Vector2f(50.0f, 50.0f));
+
 }
 
 

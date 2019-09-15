@@ -10,6 +10,8 @@
 #include "GameEngine/Util/CollisionManager.h"
 #include "SuspectEntity.h"
 #include <iostream>
+#include "Collectible.h"
+#include "GameEngine/GameEngineMain.h"
 
 using namespace Game;
 
@@ -41,8 +43,10 @@ PlayerEntity::PlayerEntity() : lastNPCRef(nullptr), isInteractKeyPressed(false),
 	//Camera control
 	AddComponent<PlayerCameraComponent>();
 
+	items = "Items: \n";
+
 	ui = new UIEntity();
-	ui->SetText("Hello Adventure! I am NPC.\nHello");
+	ui->SetText(items);
 	ui->SetTextSize(18);
 	ui->SetColor(sf::Color::Green);
 }
@@ -63,7 +67,8 @@ void PlayerEntity::OnAddToWorld()
 		m_animComponent->PlayAnim(GameEngine::EAnimationId::None);
 	}
 
-	ui->AttachToEntity(this, -5.0f, -50.0f);
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(ui);
+	//ui->AttachToEntity(this, -100.0f, -300.0f);
 }
 
 
@@ -75,6 +80,10 @@ void PlayerEntity::OnRemoveFromWorld()
 void PlayerEntity::Update()
 {
 	__super::Update();
+
+	//UI
+	ui->SetPos(sf::Vector2f(GetPos().x - 400.0f, -250.0f));
+	ui->Update();
 
 	//Gamepad logic
 	if (sf::Joystick::isConnected(0))
@@ -90,6 +99,15 @@ void PlayerEntity::Update()
 
 				isInteractKeyPressed = false;
 				lastNPCRef->OnInteract();
+				if (Collectible* col = dynamic_cast<Collectible*>(lastNPCRef))
+				{
+					if (!col->GetHidden())
+					{
+						items.append(col->GetName() + "\n");
+						ui->SetText(items);
+						col->hidden = true;
+					}
+				}
 				//std::cout << "OnInteract\n";
 			}
 
@@ -99,7 +117,7 @@ void PlayerEntity::Update()
 		{
 			isThreatKeyPressed = true;
 		}
-		else 
+		else
 		{
 			//Threaten
 			if (isThreatKeyPressed)
@@ -139,6 +157,10 @@ void PlayerEntity::Update()
 			{
 				isInteractKeyPressed = true;
 				lastNPCRef->OnInteract();
+				if (Collectible* col = dynamic_cast<Collectible*>(lastNPCRef))
+				{
+					items.append(col->GetName() + "\n");
+				}
 			}
 			else
 			{

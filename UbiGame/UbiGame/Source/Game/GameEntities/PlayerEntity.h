@@ -36,6 +36,8 @@ namespace Game
 
 		//UI
 		UIEntity* ui;
+
+		std::string items;
 	};
 }
 

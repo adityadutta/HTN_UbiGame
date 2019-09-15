@@ -15,8 +15,8 @@ Plaguedoctor::Plaguedoctor()
 	collider = static_cast<GameEngine::CollidableComponent*>(AddComponent<GameEngine::CollidableComponent>());
 	collider->SetTag("NPC");
 
-	dialogues.at(0) = std::string("Hello! I am the Plauge Doctor.");
-	dialogues.at(1) = std::string("The Blacksmith has been up to suspicious activity recently.\n You should talk to them");
+	dialogues.at(0) = std::string("Hello! I am the Plague Doctor.");
+	dialogues.at(1) = std::string("The Blacksmith has been up to suspicious activity recently.\n You should talk to him.");
 	SetDialogue(0);
 }
 
