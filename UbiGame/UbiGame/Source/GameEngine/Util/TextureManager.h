@@ -13,6 +13,8 @@ namespace GameEngine
 			None = -1,
 			Player = 0,
 			PlayerIdle,
+			PlayerAttack,
+			PlayerDead,
 			Tileset,
 			BG,
 			Particles,
@@ -43,6 +45,8 @@ namespace GameEngine
 		{
 		case eTexture::Player:			return "knight_animation.png";
 		case eTexture::PlayerIdle:		return "knight_idle.png";
+		case eTexture::PlayerAttack:	return "knight_attack.png";
+		case eTexture::PlayerDead:		return "knight_death.png";
 		case eTexture::Tileset:			return "tileset.png";
 		case eTexture::BG:				return "starry_background.png";
 		case eTexture::Particles:		return "particles.png";
@@ -94,6 +98,8 @@ namespace TextureHelper
 		{
 		case  GameEngine::eTexture::Player:  return sf::Vector2f(252.f, 280.f);
 		case  GameEngine::eTexture::PlayerIdle:  return sf::Vector2f(252.f, 280.f);
+		case  GameEngine::eTexture::PlayerAttack:  return sf::Vector2f(272.f, 344.f);
+		case  GameEngine::eTexture::PlayerDead:  return sf::Vector2f(341.f, 288.f);
 		case  GameEngine::eTexture::Tileset: return sf::Vector2f(32.f, 32.f);
 		case  GameEngine::eTexture::BG:				return sf::Vector2f(1920.f, 1200.f);
 		case  GameEngine::eTexture::Particles: return sf::Vector2f(31.f, 32.f);
