@@ -49,8 +49,10 @@ namespace Game
 		float m_lastObstacleSpawnTimer;
 		bool  m_isGameOver;
 
-		NPCEntity* blacksmith;
-
+		NPCEntity* m_blacksmith;
+		NPCEntity* m_shopkeeper;
+		NPCEntity* m_towncrier;
+		NPCEntity* m_plaguedoctor;
 	};
 }
 

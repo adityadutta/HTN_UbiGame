@@ -1,18 +1,18 @@
-#include "Plauged.h"
+#include "Plagued.h"
 
 #include "GameEngine/Util/AnimationManager.h"
 
 using namespace Game;
 
-Plauged::Plauged()
+Plagued::Plagued()
 {
 }
 
-Plauged::~Plauged()
+Plagued::~Plagued()
 {
 }
 
-void Plauged::OnAddToWorld()
+void Plagued::OnAddToWorld()
 {
 	__super::OnAddToWorld();
 
@@ -22,12 +22,12 @@ void Plauged::OnAddToWorld()
 	}
 }
 
-void Plauged::OnRemoveFromWorld()
+void Plagued::OnRemoveFromWorld()
 {
 	__super::OnRemoveFromWorld();
 }
 
-void Plauged::OnInteract()
+void Plagued::OnInteract()
 {
 
 }

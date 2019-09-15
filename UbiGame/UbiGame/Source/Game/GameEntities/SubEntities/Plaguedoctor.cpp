@@ -1,15 +1,15 @@
-#include "Shopkeeper.h"
+#include "Plaguedoctor.h"
 
 #include "GameEngine/Util/AnimationManager.h"
 
 using namespace Game;
 
 
-Shopkeeper::Shopkeeper()
+Plaguedoctor::Plaguedoctor()
 {
 	//Render 
 	m_renderComponent = static_cast<GameEngine::SpriteRenderComponent*>(AddComponent<GameEngine::SpriteRenderComponent>());
-	m_renderComponent->SetTexture(GameEngine::eTexture::Shopkeeper);
+	m_renderComponent->SetTexture(GameEngine::eTexture::PlagueDoctor);
 	m_renderComponent->SetZLevel(2);
 
 	//Collision
@@ -17,19 +17,19 @@ Shopkeeper::Shopkeeper()
 	collider->SetTag("NPC");
 }
 
-Shopkeeper::~Shopkeeper()
+Plaguedoctor::~Plaguedoctor()
 {
 }
 
-void Shopkeeper::OnAddToWorld()
+void Plaguedoctor::OnAddToWorld()
 {
 	__super::OnAddToWorld();
 
 	if (uiEntity)
 	{
-		uiEntity->SetText("Hello! I am the Shopkeeper.");
+		uiEntity->SetText("Hello! I am the Plague Doctor.");
 		uiEntity->SetTextSize(18);
-		uiEntity->SetColor(sf::Color::Yellow);
+		uiEntity->SetColor(sf::Color::Red);
 	}
 
 	if (m_animComponent)
@@ -38,22 +38,22 @@ void Shopkeeper::OnAddToWorld()
 	}
 }
 
-void Shopkeeper::OnRemoveFromWorld()
+void Plaguedoctor::OnRemoveFromWorld()
 {
 	__super::OnRemoveFromWorld();
 }
 
-void Shopkeeper::OnInteract()
+void Plaguedoctor::OnInteract()
 {
 
 }
 
-void Shopkeeper::OnThreaten()
+void Plaguedoctor::OnThreaten()
 {
 
 }
 
-void Shopkeeper::OnArrest()
+void Plaguedoctor::OnArrest()
 {
 
 }

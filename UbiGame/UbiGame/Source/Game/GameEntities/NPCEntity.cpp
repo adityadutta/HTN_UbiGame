@@ -5,7 +5,6 @@ using namespace Game;
 
 NPCEntity::NPCEntity(): uiActive(false), uiEntity(nullptr)
 {
-	
 }
 
 
@@ -18,7 +17,7 @@ void NPCEntity::OnAddToWorld()
 	__super::OnAddToWorld();
 
 	uiEntity = new UIEntity();
-	uiEntity->SetText("Hello Adventure! I am NPC.\nHello");
+	uiEntity->SetText("Hello Sir! I am NPC.\nHello");
 	uiEntity->SetTextSize(18);
 	uiEntity->SetColor(sf::Color::Green);
 }
@@ -33,7 +32,7 @@ void NPCEntity::DisplayDialogue()
 	if(!uiActive)
 	{
 		uiActive = true;
-		uiEntity->AttachToEntity(this, -5.0f, -50.0f);
+		uiEntity->AttachToEntity(this, ((float)(-GetSize().x)/2), (float)(-GetSize().y*0.65));
 	}
 }
 

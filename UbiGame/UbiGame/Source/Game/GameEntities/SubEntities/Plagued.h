@@ -5,12 +5,11 @@
 namespace Game
 {
 
-
-	class Plauged : public NPCEntity
+	class Plagued : public NPCEntity
 	{
 	public:
-		Plauged();
-		~Plauged();
+		Plagued();
+		~Plagued();
 
 		void OnAddToWorld();
 		void OnRemoveFromWorld();

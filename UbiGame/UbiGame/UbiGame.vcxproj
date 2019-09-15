@@ -138,6 +138,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Game\GameEntities\GroundEntity.cpp" />
     <ClCompile Include="Source\Game\GameEntities\NPCEntity.cpp" />
     <ClCompile Include="Source\Game\GameComponents\PawnPhysicsComponent.cpp" />
     <ClCompile Include="Source\Game\GameComponents\PlayerCollisionComponent.cpp" />
@@ -166,14 +167,15 @@
     <ClCompile Include="Source\GameEngine\EntitySystem\Components\SpriteRenderComponent.cpp" />
     <ClCompile Include="Source\GameEngine\EntitySystem\Components\TextComponent.cpp" />
     <ClCompile Include="Source\Game\GameEntities\SubEntities\Blacksmith.cpp" />
-    <ClCompile Include="Source\Game\GameEntities\SubEntities\Plauged.cpp" />
-    <ClCompile Include="Source\Game\GameEntities\SubEntities\Plaugedoctor.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\SubEntities\Plagued.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\SubEntities\Plaguedoctor.cpp" />
     <ClCompile Include="Source\Game\GameEntities\SubEntities\Shopkeeper.cpp" />
     <ClCompile Include="Source\Game\GameEntities\SubEntities\Towncrier.cpp" />
     <ClCompile Include="Source\Game\GameEntities\SuspectEntity.cpp" />
     <ClCompile Include="Source\Game\GameEntities\UIEntity.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Game\GameEntities\GroundEntity.h" />
     <ClInclude Include="Source\Game\GameEntities\NPCEntity.h" />
     <ClInclude Include="Source\Game\GameComponents\PawnPhysicsComponent.h" />
     <ClInclude Include="Source\Game\GameComponents\PlayerCollisionComponent.h" />
@@ -201,8 +203,8 @@
     <ClInclude Include="Source\GameEngine\EntitySystem\Components\SpriteRenderComponent.h" />
     <ClInclude Include="Source\GameEngine\EntitySystem\Components\TextComponent.h" />
     <ClInclude Include="Source\Game\GameEntities\SubEntities\Blacksmith.h" />
-    <ClInclude Include="Source\Game\GameEntities\SubEntities\Plauged.h" />
-    <ClInclude Include="Source\Game\GameEntities\SubEntities\Plaugedoctor.h" />
+    <ClInclude Include="Source\Game\GameEntities\SubEntities\Plagued.h" />
+    <ClInclude Include="Source\Game\GameEntities\SubEntities\Plaguedoctor.h" />
     <ClInclude Include="Source\Game\GameEntities\SubEntities\Shopkeeper.h" />
     <ClInclude Include="Source\Game\GameEntities\SubEntities\Towncrier.h" />
     <ClInclude Include="Source\Game\GameEntities\SuspectEntity.h" />
