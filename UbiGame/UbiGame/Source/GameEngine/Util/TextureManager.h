@@ -17,13 +17,6 @@ namespace GameEngine
 			Particles,
 			Ground,
 			Blacksmith,
-			BGObject1,
-			BGObject2,
-			BGObject3,
-			BGObject4,
-			BGObject5,
-			BGObject6,
-			BGObject7,
 			Count,
 		};
 	}	
@@ -38,13 +31,6 @@ namespace GameEngine
 		case eTexture::Particles: return "particles.png";
 		case eTexture::Ground: return "ground.png";
 		case eTexture::Blacksmith: return "blacksmith.png";
-		case eTexture::BGObject1:	return "background1.png";
-		case eTexture::BGObject2:	return "background2.png";
-		case eTexture::BGObject3:	return "background3.png";
-		case eTexture::BGObject4:	return "background4.png";
-		case eTexture::BGObject5:	return "background5.png";
-		case eTexture::BGObject6:	return "background6.png";
-		case eTexture::BGObject7:	return "background7.png";
 		default:       return "UnknownTexType";
 		}
 	}

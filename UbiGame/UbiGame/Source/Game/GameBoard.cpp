@@ -7,7 +7,6 @@
 #include "Game\GameEntities\PlayerEntity.h"
 #include "Game\GameEntities\ObstacleEntity.h"
 #include "Game\GameEntities\GroundEntity.h"
-#include "Game\GameEntities\BackgroundEntity.h"
 #include "GameEntities/SubEntities/Blacksmith.h"
 
 using namespace Game;
@@ -59,7 +58,7 @@ void GameBoard::Update()
 	if (!m_isGameOver)
 	{
 		m_lastObstacleSpawnTimer -= dt;
-		if (m_lastObstacleSpawnTimer >= 0.f)
+		if (m_lastObstacleSpawnTimer <= 0.f)
 		{
 			//SpawnNewRandomObstacles();
 //			SpawnNewRandomTiledObstacles();
@@ -94,7 +93,6 @@ void GameBoard::UpdateObstacles(float dt)
 			it++;
 		}
 	}
-
 }
 
 
@@ -200,9 +198,6 @@ void GameBoard::CreateBackGround()
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(bgEntity);
 
 	m_backGround = bgEntity;
-
-	CreateBackGroundObjects();
-
 }
 
 
@@ -215,15 +210,6 @@ void GameBoard::UpdateBackGround()
 		return;
 
 	m_backGround->SetPos(sf::Vector2f(m_player->GetPos().x, 0.f));
-	
-	
-}
-
-void GameBoard::CreateBackGroundObjects()
-{
-	BackgroundEntity* bgEntity = new BackgroundEntity();
-	m_backgroundObjects = bgEntity->renderObjects();
-
 }
 
 /*
