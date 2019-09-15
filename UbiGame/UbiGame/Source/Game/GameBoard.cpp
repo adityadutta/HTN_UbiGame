@@ -39,11 +39,11 @@ GameBoard::GameBoard()
 	}
 
 	SpawnRandomObjects();
-	cow = new AnimatedObjectEntity();
-
-	GameEngine::GameEngineMain::GetInstance()->AddEntity(cow);
-	cow->SetPos(sf::Vector2f(-100.0f, -200.0f));
-	cow->SetSize(sf::Vector2f(155.0f, 100.f));
+	//Cow
+	m_cow = new AnimatedObjectEntity(GameEngine::EAnimationId::CowAnim, GameEngine::eTexture::Cow);
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_cow);
+	m_cow->SetPos(sf::Vector2f(-400.0f, -150.0f));
+	m_cow->SetSize(sf::Vector2f(155.0f, 100.f));
 
 	//BlackSmith
 	m_blacksmith = new Blacksmith();
@@ -57,7 +57,7 @@ GameBoard::GameBoard()
 	m_shopkeeper->SetPos(sf::Vector2f(600.0f, 200.0f));
 	m_shopkeeper->SetSize(sf::Vector2f(180.0f, 180.0f));
 
-	//ShopKeeper
+	//Towncrier
 	m_towncrier = new Towncrier();
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_towncrier);
 	m_towncrier->SetPos(sf::Vector2f(1200.0f, 200.0f));

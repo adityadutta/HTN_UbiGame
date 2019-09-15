@@ -47,9 +47,29 @@ void Blacksmith::OnRemoveFromWorld()
 
 void Blacksmith::OnInteract()
 {
-	if (uiEntity)
+	if (!uiEntity)
 	{
-		SetDialogue(1);
+		return;
+	}
+
+	if (randomInteractChecked)
+	{
+		SetDialogue(randomFirstCheckIndex);
+	}
+	else
+	{
+		// Correct Dice Roll
+		if (randomInteractCheck())
+		{
+			SetDialogue(2);
+			randomFirstCheckIndex = 2;
+		}
+		else
+		{
+			SetDialogue(1);
+			randomFirstCheckIndex = 1;
+		}
+		randomInteractChecked = true;
 	}
 }
 

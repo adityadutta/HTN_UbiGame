@@ -48,9 +48,29 @@ void Plaguedoctor::OnRemoveFromWorld()
 
 void Plaguedoctor::OnInteract()
 {
-	if (uiEntity)
+	if (!uiEntity)
 	{
-		SetDialogue(1);
+		return;
+	}
+
+	if (randomInteractChecked)
+	{
+		SetDialogue(randomFirstCheckIndex);
+	}
+	else
+	{
+		//Correct dice roll
+		if (randomInteractCheck())
+		{
+			SetDialogue(1);
+			randomFirstCheckIndex = 1;
+		}
+		else
+		{
+			SetDialogue(2);
+			randomFirstCheckIndex = 2;
+		}
+		randomInteractChecked = true;
 	}
 }
 
