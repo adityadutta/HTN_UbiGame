@@ -52,6 +52,26 @@ void AnimationManager::InitStaticGameAnimations()
 	m_animDefinitions.push_back
 	(
 		SAnimationDefinition(
+			EAnimationId::PlayerAttack,
+			eTexture::PlayerAttack,
+			sf::Vector2i(0, 0),
+			15,
+			10)
+	);
+
+	m_animDefinitions.push_back
+	(
+		SAnimationDefinition(
+			EAnimationId::PlayerDead,
+			eTexture::PlayerDead,
+			sf::Vector2i(0, 0),
+			19,
+			8)
+	);
+
+	m_animDefinitions.push_back
+	(
+		SAnimationDefinition(
 			EAnimationId::CowAnim,
 			eTexture::Cow,
 			sf::Vector2i(0, 0),
