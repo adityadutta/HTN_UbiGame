@@ -8,10 +8,12 @@
 #include "GameEngine/EntitySystem/Components/SoundComponent.h"
 #include "GameEngine/Util/AnimationManager.h"
 #include "GameEngine/Util/CollisionManager.h"
+#include "SuspectEntity.h"
+#include <iostream>
 
 using namespace Game;
 
-PlayerEntity::PlayerEntity() : lastNPCRef(nullptr)
+PlayerEntity::PlayerEntity() : lastNPCRef(nullptr), isInteractKeyPressed(false), isThreatKeyPressed(false), isArrestKeyPressed(false)
 {
 	//Movement
 	m_playerMovementComponent = static_cast<PlayerMovementComponent*>(AddComponent<PlayerMovementComponent>());
@@ -76,7 +78,6 @@ void PlayerEntity::OnRemoveFromWorld()
 	__super::OnRemoveFromWorld();
 }
 
-bool isInteractKeyPressed = false;
 void PlayerEntity::Update()
 {
 	__super::Update();
@@ -86,12 +87,55 @@ void PlayerEntity::Update()
 	{
 		if (sf::Joystick::isButtonPressed(0, 1))
 		{
-			if (lastNPCRef)
+			isInteractKeyPressed = true;
+		}
+		else
+		{
+			if (lastNPCRef && isInteractKeyPressed)
 			{
-				lastNPCRef->HideDialogue();
-				//GameEngine::CollisionManager::GetInstance()->UnRegisterCollidable(lastNPCRef->GetComponent<GameEngine::CollidableComponent>());
+
+				isInteractKeyPressed = false;
+				lastNPCRef->OnInteract();
+				//std::cout << "OnInteract\n";
+			}
+
+		}
+
+		if (sf::Joystick::isButtonPressed(0, 3))
+		{
+			isThreatKeyPressed = true;
+		}
+		else 
+		{
+			//Threaten
+			if (isThreatKeyPressed)
+			{
+				isThreatKeyPressed = false;
+				if (SuspectEntity* se = dynamic_cast<SuspectEntity*>(lastNPCRef))
+				{
+					se->OnThreaten();
+					//std::cout << "Threaten\n";
+				}
 			}
 		}
+		//Arrest
+		if (sf::Joystick::isButtonPressed(0, 2))
+		{
+			isArrestKeyPressed = true;
+		}
+		else
+		{
+			if (isArrestKeyPressed)
+			{
+				isArrestKeyPressed = false;
+				if (SuspectEntity* se = dynamic_cast<SuspectEntity*>(lastNPCRef))
+				{
+					se->OnArrest();
+					//std::cout << "Arrest\n";
+				}
+			}
+		}
+
 	}
 	else
 	{
@@ -100,8 +144,7 @@ void PlayerEntity::Update()
 			if (lastNPCRef && !isInteractKeyPressed)
 			{
 				isInteractKeyPressed = true;
-				lastNPCRef->HideDialogue();
-				//GameEngine::CollisionManager::GetInstance()->UnRegisterCollidable(lastNPCRef->GetComponent<GameEngine::CollidableComponent>());
+				lastNPCRef->OnInteract();
 			}
 			else
 			{

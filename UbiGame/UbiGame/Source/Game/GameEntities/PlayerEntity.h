@@ -30,6 +30,10 @@ namespace Game
 		GameEngine::AnimationComponent* m_animComponent;
 		PawnPhysicsComponent* pawnPhysicsComponent;
 
+		bool isInteractKeyPressed;
+		bool isThreatKeyPressed;
+		bool isArrestKeyPressed;
+
 		//UI
 		UIEntity* ui;
 	};

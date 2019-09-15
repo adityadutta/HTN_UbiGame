@@ -23,6 +23,7 @@ void Game::PlayerCollisionComponent::OnAddToWorld()
 void Game::PlayerCollisionComponent::Update()
 {	
 	__super::Update();
+
 	CheckForOverlapTrigger();
 }
 
