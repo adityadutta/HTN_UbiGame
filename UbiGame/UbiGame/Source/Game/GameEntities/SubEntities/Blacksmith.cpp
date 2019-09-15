@@ -17,6 +17,8 @@ Blacksmith::Blacksmith()
 
 	dialogues.at(0) = std::string("Hello! I am the Blacksmith.");
 	SetDialogue(0);
+
+	threatenableItem = "Blood Stained Hammer";
 }
 
 Blacksmith::~Blacksmith()
@@ -31,7 +33,7 @@ void Blacksmith::OnAddToWorld()
 	{
 		uiEntity->SetText("");
 		uiEntity->SetTextSize(18);
-		uiEntity->SetColor(sf::Color::Blue);
+		uiEntity->SetColor(sf::Color::Cyan);
 	}
 
 	if (m_animComponent)
@@ -73,12 +75,20 @@ void Blacksmith::OnInteract()
 	}
 }
 
-void Blacksmith::OnThreaten()
+void Blacksmith::OnThreaten(bool threatened)
 {
-	if (uiEntity)
+	if (!uiEntity)
+	{
+		return;
+	}
+	if (threatened)
 	{
 		//Success
 		SetDialogue(3);
+	}
+	else
+	{
+		SetDialogue(5);
 	}
 }
 

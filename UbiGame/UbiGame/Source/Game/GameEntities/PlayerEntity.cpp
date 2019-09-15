@@ -103,6 +103,7 @@ void PlayerEntity::Update()
 				{
 					if (!col->GetHidden())
 					{
+						list.push_back(col->GetName());
 						items.append(col->GetName() + "\n");
 						ui->SetText(items);
 						col->hidden = true;
@@ -125,7 +126,15 @@ void PlayerEntity::Update()
 				isThreatKeyPressed = false;
 				if (SuspectEntity* se = dynamic_cast<SuspectEntity*>(lastNPCRef))
 				{
-					se->OnThreaten();
+					bool threatenable = false;
+					for (auto item : list)
+					{
+						if (item == se->getThreatenableItem())
+						{
+							threatenable = true;
+						}
+					}
+					se->OnThreaten(threatenable);
 					//std::cout << "Threaten\n";
 				}
 			}

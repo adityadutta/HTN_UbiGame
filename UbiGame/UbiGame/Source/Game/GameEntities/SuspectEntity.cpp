@@ -14,7 +14,7 @@ std::vector<std::string> dialogueOptions = {
 	std::string("I would have gotten away with it!")
 };
 
-SuspectEntity::SuspectEntity() : randomInteractChecked(false)
+SuspectEntity::SuspectEntity() : randomInteractChecked(false), threatenableItem(std::string(""))
 {
 	dialogues = dialogueOptions;
 }
@@ -22,6 +22,11 @@ SuspectEntity::SuspectEntity() : randomInteractChecked(false)
 
 SuspectEntity::~SuspectEntity()
 {
+}
+
+std::string SuspectEntity::getThreatenableItem()
+{
+	return threatenableItem;
 }
 
 bool SuspectEntity::randomInteractCheck()

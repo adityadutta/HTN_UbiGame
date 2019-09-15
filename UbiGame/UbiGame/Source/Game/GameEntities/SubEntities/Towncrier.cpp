@@ -17,6 +17,8 @@ Towncrier::Towncrier()
 
 	dialogues.at(0) = std::string("Hello! I am the Town Crier.");
 	SetDialogue(0);
+
+	threatenableItem = "Bell";
 }
 
 Towncrier::~Towncrier()
@@ -31,7 +33,7 @@ void Towncrier::OnAddToWorld()
 	{
 		uiEntity->SetText("");
 		uiEntity->SetTextSize(18);
-		uiEntity->SetColor(sf::Color::Black);
+		uiEntity->SetColor(sf::Color::White);
 	}
 
 	if (m_animComponent)
@@ -73,12 +75,20 @@ void Towncrier::OnInteract()
 	}
 }
 
-void Towncrier::OnThreaten()
+void Towncrier::OnThreaten(bool threatened)
 {
-	if (uiEntity)
+	if (!uiEntity)
+	{
+		return;
+	}
+	if (threatened)
 	{
 		//Success
 		SetDialogue(3);
+	}
+	else
+	{
+		SetDialogue(5);
 	}
 }
 

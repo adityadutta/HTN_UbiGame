@@ -18,6 +18,8 @@ Plaguedoctor::Plaguedoctor()
 	dialogues.at(0) = std::string("Hello! I am the Plague Doctor.");
 	dialogues.at(1) = std::string("The Blacksmith has been up to suspicious activity recently.\n You should talk to him.");
 	SetDialogue(0);
+
+	threatenableItem = "Green Vial";
 }
 
 Plaguedoctor::~Plaguedoctor()
@@ -74,11 +76,20 @@ void Plaguedoctor::OnInteract()
 	}
 }
 
-void Plaguedoctor::OnThreaten()
+void Plaguedoctor::OnThreaten(bool threatened)
 {
-	if (uiEntity)
+	if (!uiEntity)
 	{
+		return;
+	}
+	if (threatened)
+	{
+		//Success
 		SetDialogue(4);
+	}
+	else
+	{
+		SetDialogue(5);
 	}
 }
 

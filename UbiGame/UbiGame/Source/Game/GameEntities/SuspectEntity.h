@@ -9,12 +9,14 @@ namespace Game
 		SuspectEntity();
 		~SuspectEntity();
 
-		virtual void OnThreaten() = 0;
+		virtual void OnThreaten(bool threatened) = 0;
 		virtual void OnArrest() = 0;
 		bool randomInteractCheck();
+		std::string getThreatenableItem();
 
 	protected:
 		bool randomInteractChecked;
 		int randomFirstCheckIndex;
+		std::string threatenableItem;
 	};
 }

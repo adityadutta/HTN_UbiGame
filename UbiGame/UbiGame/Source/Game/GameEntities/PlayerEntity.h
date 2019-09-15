@@ -38,6 +38,7 @@ namespace Game
 		UIEntity* ui;
 
 		std::string items;
+		std::vector<std::string> list;
 	};
 }
 

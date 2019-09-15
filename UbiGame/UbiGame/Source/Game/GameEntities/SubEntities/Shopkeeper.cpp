@@ -17,6 +17,8 @@ Shopkeeper::Shopkeeper()
 
 	dialogues.at(0) = std::string("Hello! I am the Shopkeeper.");
 	SetDialogue(0);
+
+	threatenableItem = "Panacea";
 }
 
 Shopkeeper::~Shopkeeper()
@@ -73,12 +75,20 @@ void Shopkeeper::OnInteract()
 	}
 }
 
-void Shopkeeper::OnThreaten()
+void Shopkeeper::OnThreaten(bool threatened)
 {
-	if (uiEntity)
+	if (!uiEntity)
+	{
+		return;
+	}
+	if (threatened)
 	{
 		//Success
 		SetDialogue(3);
+	}
+	else
+	{
+		SetDialogue(5);
 	}
 }
 
