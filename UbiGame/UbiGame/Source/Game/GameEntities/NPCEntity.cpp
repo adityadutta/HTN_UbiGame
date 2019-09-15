@@ -34,6 +34,11 @@ void NPCEntity::DisplayDialogue()
 	{
 		uiActive = true;
 		uiEntity->SetText(dialogues.at(currentDialogueIndex));
+		currentDisplayString = dialogues.at(currentDialogueIndex);
+	}
+	if (!IsDisplayString())
+	{
+		uiEntity->SetText(dialogues.at(currentDialogueIndex));
 	}
 }
 
@@ -51,4 +56,9 @@ void NPCEntity::SetDialogue(int dialogueIndex_)
 void NPCEntity::OnInteract()
 {
 	HideDialogue();
+}
+
+bool NPCEntity::IsDisplayString()
+{
+	return currentDisplayString == dialogues.at(currentDialogueIndex);
 }

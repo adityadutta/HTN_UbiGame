@@ -22,6 +22,8 @@ namespace Game
 		virtual void SetDialogue(int dialogueIndex_);
 
 	protected:
+		bool IsDisplayString();
+
 		GameEngine::SpriteRenderComponent* m_renderComponent;
 		GameEngine::AnimationComponent* m_animComponent;
 
@@ -33,6 +35,7 @@ namespace Game
 
 		std::vector<std::string> dialogues;
 		int currentDialogueIndex;
+		std::string currentDisplayString;
 	};
 
 }
