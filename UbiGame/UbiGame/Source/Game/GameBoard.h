@@ -38,6 +38,8 @@ namespace Game
 		void UpdateBackGround();
 
 		void CreateGround();
+
+		void CreateBackGroundObjects();
 		//void UpdateGround();
 
 		PlayerEntity* m_player;
@@ -46,6 +48,7 @@ namespace Game
 		GameEngine::Entity* m_backGround;
 
 		std::vector<GameEngine::Entity*> m_obstacles;
+		std::vector<GameEngine::Entity*> m_backgroundObjects;
 		float m_lastObstacleSpawnTimer;
 		bool  m_isGameOver;
 
