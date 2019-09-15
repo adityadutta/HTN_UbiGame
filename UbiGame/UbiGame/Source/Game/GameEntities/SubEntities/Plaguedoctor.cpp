@@ -16,7 +16,7 @@ Plaguedoctor::Plaguedoctor()
 	collider->SetTag("NPC");
 
 	dialogues.at(0) = std::string("Hello! I am the Plauge Doctor.");
-	dialogues.at(1) = std::string("The Blacksmith has been up to suspicious activity recently.\n You should talk to them");
+	dialogues.at(2) = std::string("The Blacksmith has been up to suspicious activity recently.\n You should talk to them");
 	SetDialogue(0);
 }
 
@@ -48,9 +48,29 @@ void Plaguedoctor::OnRemoveFromWorld()
 
 void Plaguedoctor::OnInteract()
 {
-	if (uiEntity)
+	if (!uiEntity)
 	{
-		SetDialogue(1);
+		return;
+	}
+
+	if (randomInteractChecked)
+	{
+		SetDialogue(randomFirstCheckIndex);
+	}
+	else
+	{
+		//Correct dice roll
+		if (randomInteractCheck())
+		{
+			SetDialogue(1);
+			randomFirstCheckIndex = 1;
+		}
+		else
+		{
+			SetDialogue(2);
+			randomFirstCheckIndex = 2;
+		}
+		randomInteractChecked = true;
 	}
 }
 

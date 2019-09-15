@@ -1,4 +1,5 @@
 #include "SuspectEntity.h"
+#include <ctime>
 
 using namespace Game;
 
@@ -13,7 +14,7 @@ std::vector<std::string> dialogueOptions = {
 	std::string("I would have gotten away with it!")
 };
 
-SuspectEntity::SuspectEntity()
+SuspectEntity::SuspectEntity() : randomInteractChecked(false)
 {
 	dialogues = dialogueOptions;
 }
@@ -21,4 +22,10 @@ SuspectEntity::SuspectEntity()
 
 SuspectEntity::~SuspectEntity()
 {
+}
+
+bool SuspectEntity::randomInteractCheck()
+{
+	std::srand(time(NULL));
+	return std::rand()%4 == 0;
 }

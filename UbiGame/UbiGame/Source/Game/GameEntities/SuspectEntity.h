@@ -11,5 +11,10 @@ namespace Game
 
 		virtual void OnThreaten() = 0;
 		virtual void OnArrest() = 0;
+		bool randomInteractCheck();
+
+	protected:
+		bool randomInteractChecked;
+		int randomFirstCheckIndex;
 	};
 }
