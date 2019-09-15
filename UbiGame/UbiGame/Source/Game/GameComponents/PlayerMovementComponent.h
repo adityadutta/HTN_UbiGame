@@ -26,8 +26,13 @@ namespace Game
 		bool jumping;
 		bool grounded;
 
+		bool wasNothingPressed = true;
+		bool wasRightPressed = false;
+		bool wasLeftPressed = false;
+
 		GameEngine::AnimationComponent* m_animComponent;
 		PlayerSoundComponent*			m_playerSoundComponent;
+
 	};
 }
 

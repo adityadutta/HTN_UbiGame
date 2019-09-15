@@ -32,12 +32,6 @@ PlayerEntity::PlayerEntity() : lastNPCRef(nullptr), isInteractKeyPressed(false),
 	//Collisions
 	AddComponent<PlayerCollisionComponent>();
 
-	//Particles
-	GameEngine::ParticleEmitterComponent* emitterComponent = static_cast<GameEngine::ParticleEmitterComponent*>(AddComponent<GameEngine::ParticleEmitterComponent>());
-	GameEngine::SParticleDefinition particleDef = GameEngine::SParticleDefinition(GameEngine::eTexture::Particles, 1, sf::Vector2f(32.f, 32.f), GameEngine::EAnimationId::Smoke, 1.f);
-	emitterComponent->SetParticleDefinition(particleDef);
-
-
 	//Sound
 	GameEngine::SoundComponent* const soundComponent = static_cast<GameEngine::SoundComponent*>(AddComponent<GameEngine::SoundComponent>());
 	soundComponent->SetNumSimultaneousSounds(2); // Hard coded 5 simultaneous sounds for the player
@@ -66,7 +60,7 @@ void PlayerEntity::OnAddToWorld()
 
 	if (m_animComponent)
 	{
-		m_animComponent->PlayAnim(GameEngine::EAnimationId::BirdIdle);
+		m_animComponent->PlayAnim(GameEngine::EAnimationId::None);
 	}
 
 	ui->AttachToEntity(this, -5.0f, -50.0f);

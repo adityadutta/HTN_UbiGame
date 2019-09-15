@@ -3,9 +3,8 @@
 
 using namespace Game;
 
-NPCEntity::NPCEntity(): uiActive(false), uiEntity(nullptr)
+NPCEntity::NPCEntity(): uiActive(false), uiEntity(nullptr), currentDialogueIndex(0)
 {
-	
 }
 
 
@@ -21,8 +20,7 @@ void NPCEntity::OnAddToWorld()
 	uiEntity->SetText("");
 	uiEntity->SetTextSize(18);
 	uiEntity->SetColor(sf::Color::Green);
-
-	uiEntity->AttachToEntity(this, -5.0f, -50.0f);
+	uiEntity->AttachToEntity(this, ((float)(-GetSize().x) / 2), (float)(-GetSize().y*0.65));
 }
 
 void NPCEntity::OnRemoveFromWorld()
@@ -35,7 +33,12 @@ void NPCEntity::DisplayDialogue()
 	if(!uiActive)
 	{
 		uiActive = true;
-		uiEntity->SetText("Hello Adventure! I am NPC.\nHello");
+		uiEntity->SetText(dialogues.at(currentDialogueIndex));
+		currentDisplayString = dialogues.at(currentDialogueIndex);
+	}
+	if (!IsDisplayString())
+	{
+		uiEntity->SetText(dialogues.at(currentDialogueIndex));
 	}
 }
 
@@ -45,12 +48,17 @@ void NPCEntity::HideDialogue()
 	uiActive = false;
 }
 
-void NPCEntity::SetDialogue(std::string dialogue_)
+void NPCEntity::SetDialogue(int dialogueIndex_)
 {
-	uiEntity->SetText(dialogue_);
+	currentDialogueIndex = dialogueIndex_;
 }
 
 void NPCEntity::OnInteract()
 {
 	HideDialogue();
+}
+
+bool NPCEntity::IsDisplayString()
+{
+	return currentDisplayString == dialogues.at(currentDialogueIndex);
 }

@@ -1,9 +1,8 @@
+#pragma once
 #include "NPCEntity.h"
-
 
 namespace Game
 {
-
 	class SuspectEntity : public NPCEntity
 	{
 	public:
@@ -13,5 +12,4 @@ namespace Game
 		virtual void OnThreaten() = 0;
 		virtual void OnArrest() = 0;
 	};
-
 }
