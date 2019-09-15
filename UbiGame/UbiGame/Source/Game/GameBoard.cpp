@@ -118,6 +118,10 @@ void GameBoard::Update()
 		//UpdateGround();
 		UpdatePlayerDying();
 	}		
+	else
+	{
+		m_player->Death();
+	}
 }
 
 
@@ -147,16 +151,11 @@ void GameBoard::UpdateObstacles(float dt)
 
 void GameBoard::UpdatePlayerDying()
 {	
-	bool noGameOver = GameEngine::CameraManager::IsFollowCameraEnabled();
-
-	if (noGameOver)
-		return;
-
-	static float xToPlayerDie = 0.f;
-	if (m_player->GetPos().x < xToPlayerDie)
+	if (!m_player->isDead)
 	{
-		m_isGameOver = true;
+		return;
 	}
+	m_isGameOver = true;
 }
 
 

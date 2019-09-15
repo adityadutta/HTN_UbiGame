@@ -34,3 +34,8 @@ bool SuspectEntity::randomInteractCheck()
 	std::srand(time(NULL));
 	return std::rand()%4 == 0;
 }
+
+bool SuspectEntity::isPlayerDead()
+{
+	return isPlayerKilled;
+}

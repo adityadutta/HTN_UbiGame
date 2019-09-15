@@ -90,6 +90,7 @@ void Plaguedoctor::OnThreaten(bool threatened)
 	else
 	{
 		SetDialogue(5);
+		isPlayerKilled = true;
 	}
 }
 

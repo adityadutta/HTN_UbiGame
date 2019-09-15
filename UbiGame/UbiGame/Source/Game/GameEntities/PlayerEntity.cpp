@@ -15,7 +15,7 @@
 
 using namespace Game;
 
-PlayerEntity::PlayerEntity() : lastNPCRef(nullptr), isInteractKeyPressed(false), isThreatKeyPressed(false), isArrestKeyPressed(false)
+PlayerEntity::PlayerEntity() : lastNPCRef(nullptr), isInteractKeyPressed(false), isThreatKeyPressed(false), isArrestKeyPressed(false), isDead(false)
 {
 	//Movement
 	m_playerMovementComponent = static_cast<PlayerMovementComponent*>(AddComponent<PlayerMovementComponent>());
@@ -77,6 +77,24 @@ void PlayerEntity::OnRemoveFromWorld()
 	__super::OnRemoveFromWorld();
 }
 
+void PlayerEntity::Death()
+{
+	if (m_animComponent)
+	{
+		m_animComponent->PlayAnim(GameEngine::EAnimationId::None);
+		while (m_animComponent->IsAnimPlaying()) {};
+	}
+}
+
+void PlayerEntity::Attack()
+{
+	if (m_animComponent)
+	{
+		m_animComponent->PlayAnim(GameEngine::EAnimationId::None);
+		while (m_animComponent->IsAnimPlaying()) {};
+	}
+}
+
 void PlayerEntity::Update()
 {
 	__super::Update();
@@ -135,6 +153,7 @@ void PlayerEntity::Update()
 						}
 					}
 					se->OnThreaten(threatenable);
+					isDead = se->isPlayerDead();
 					//std::cout << "Threaten\n";
 				}
 			}
@@ -152,6 +171,8 @@ void PlayerEntity::Update()
 				if (SuspectEntity* se = dynamic_cast<SuspectEntity*>(lastNPCRef))
 				{
 					se->OnArrest();
+					Attack();
+					isDead = se->isPlayerDead();
 					//std::cout << "Arrest\n";
 				}
 			}
