@@ -12,10 +12,12 @@ namespace GameEngine
 		{
 			None = -1,
 			Player = 0,
+			PlayerIdle,
 			Tileset,
 			BG,
 			Particles,
 			Ground,
+			Cow,
 			Blacksmith,
 			Count,
 		};
@@ -25,11 +27,13 @@ namespace GameEngine
 	{
 		switch (texture)
 		{
-		case eTexture::Player:    return "player.png";
-		case eTexture::Tileset:   return "tileset.png";
-		case eTexture::BG:		  return "bg.png";
-		case eTexture::Particles: return "particles.png";
-		case eTexture::Ground: return "ground.png";
+		case eTexture::Player:     return "knight_animation.png";
+		case eTexture::PlayerIdle: return "knight_idle.png";
+		case eTexture::Tileset:    return "tileset.png";
+		case eTexture::BG:		   return "bg.png";
+		case eTexture::Particles:  return "particles.png";
+		case eTexture::Ground:     return "ground.png";
+		case eTexture::Cow:        return "cow_animation.png";
 		case eTexture::Blacksmith: return "blacksmith.png";
 		default:       return "UnknownTexType";
 		}
@@ -60,11 +64,13 @@ namespace TextureHelper
 	{
 		switch (texture)
 		{
-		case  GameEngine::eTexture::Player:  return sf::Vector2f(32.f, 32.f);
+		case  GameEngine::eTexture::Player:  return sf::Vector2f(252.f, 280.f);
+		case  GameEngine::eTexture::PlayerIdle:  return sf::Vector2f(252.f, 280.f);
 		case  GameEngine::eTexture::Tileset: return sf::Vector2f(32.f, 32.f);
 		case  GameEngine::eTexture::BG:	     return sf::Vector2f(500.f, 500.f);
 		case  GameEngine::eTexture::Particles: return sf::Vector2f(31.f, 32.f);
 		case  GameEngine::eTexture::Ground: return sf::Vector2f(480.f, 100.f);
+		case  GameEngine::eTexture::Cow: return sf::Vector2f(476.f, 304.f);
 		case  GameEngine::eTexture::Blacksmith: return sf::Vector2f(150.0f, 150.f);
 		default:							 return sf::Vector2f(-1.f, -1.f);
 		}

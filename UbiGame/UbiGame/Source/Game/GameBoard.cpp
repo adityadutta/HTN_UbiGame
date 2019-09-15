@@ -7,6 +7,7 @@
 #include "Game\GameEntities\PlayerEntity.h"
 #include "Game\GameEntities\ObstacleEntity.h"
 #include "Game\GameEntities\GroundEntity.h"
+#include "Game\GameEntities\AnimatedObjectEntity.h"
 #include "GameEntities/SubEntities/Blacksmith.h"
 
 using namespace Game;
@@ -20,8 +21,8 @@ GameBoard::GameBoard()
 	m_player = new PlayerEntity();
 	
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
-	m_player->SetPos(sf::Vector2f(0.0f, -300.0f));	
-	m_player->SetSize(sf::Vector2f(40.f, 40.f));
+	m_player->SetPos(sf::Vector2f(0.f, 0.f));	
+	m_player->SetSize(sf::Vector2f(130.f, 150.f));
 	
 	CreateBackGround();
 	CreateGround();
@@ -42,6 +43,13 @@ GameBoard::GameBoard()
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(blacksmith2);
 	blacksmith2->SetPos(sf::Vector2f(400.0f, 200.0f));
 	blacksmith2->SetSize(sf::Vector2f(150.0f, 150.f));
+
+	SpawnRandomObjects();
+	cow = new AnimatedObjectEntity();
+
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(cow);
+	cow->SetPos(sf::Vector2f(-100.0f, -200.0f));
+	cow->SetSize(sf::Vector2f(155.0f, 100.f));
 
 }
 
@@ -187,6 +195,12 @@ void GameBoard::SpawnNewObstacle(const sf::Vector2f& pos, const sf::Vector2f& si
 }
 
 
+void GameBoard::SpawnRandomObjects()
+{
+	
+}
+
+
 void GameBoard::CreateBackGround()
 {
 	GameEngine::Entity* bgEntity = new GameEngine::Entity();
@@ -212,16 +226,3 @@ void GameBoard::UpdateBackGround()
 	m_backGround->SetPos(sf::Vector2f(m_player->GetPos().x, 0.f));
 }
 
-/*
-void GameBoard::UpdateGround()
-{
-	if (!m_ground_1 || !m_ground_2 || !m_player)
-		return;
-
-	if (!GameEngine::CameraManager::IsFollowCameraEnabled())
-		return;
-
-	if (m_ground_1)
-	m_ground->SetPos(sf::Vector2f(m_player->GetPos().x, m_ground->GetPos().y));
-}
-*/

@@ -4,6 +4,7 @@
 #include <SFML/System/Vector2.hpp>
 #include <vector>
 #include "GameEntities/GroundEntity.h"
+#include "GameEntities/AnimatedObjectEntity.h"
 #include "GameEntities/NPCEntity.h"
 
 namespace Game
@@ -24,6 +25,8 @@ namespace Game
 		void SpawnNewRandomObstacles();
 		void SpawnNewRandomTiledObstacles();
 		void SpawnNewObstacle(const sf::Vector2f& pos, const sf::Vector2f& size);
+
+		void SpawnRandomObjects();
 
 		bool IsGameOver() const { return m_isGameOver; }		
 
@@ -48,6 +51,8 @@ namespace Game
 		std::vector<GameEngine::Entity*> m_obstacles;
 		float m_lastObstacleSpawnTimer;
 		bool  m_isGameOver;
+
+		AnimatedObjectEntity* cow;
 
 		NPCEntity* blacksmith;
 		NPCEntity* blacksmith2;

@@ -138,6 +138,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Game\GameEntities\AnimatedObjectEntity.cpp" />
     <ClCompile Include="Source\Game\GameEntities\GroundEntity.cpp" />
     <ClCompile Include="Source\Game\GameEntities\NPCEntity.cpp" />
     <ClCompile Include="Source\Game\GameComponents\PawnPhysicsComponent.cpp" />
@@ -175,6 +176,7 @@
     <ClCompile Include="Source\Game\GameEntities\UIEntity.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Game\GameEntities\AnimatedObjectEntity.h" />
     <ClInclude Include="Source\Game\GameEntities\GroundEntity.h" />
     <ClInclude Include="Source\Game\GameEntities\NPCEntity.h" />
     <ClInclude Include="Source\Game\GameComponents\PawnPhysicsComponent.h" />
